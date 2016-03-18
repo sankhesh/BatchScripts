@@ -1,22 +1,30 @@
 @ECHO OFF
 
 SET CURRENT_DIR="%CD%"
-SET CMAKE_PREFIX_PATH=F:\Software\Qt5\Qt5.5.1\5.5\msvc2013_64\lib\cmake
-SET PATH=F:\Projects\CMake\install\bin;%PATH%
 
-SET VTK_ROOT=F:\Projects\vtk
+SET QT_BLD=D:\Projects\Qt\bld
+SET CMAKE_PREFIX_PATH=%QT_BLD%\qtbase\lib\cmake
+SET PATH=D:\Projects\CMake\install\bin;%PATH%
+
+SET VTK_ROOT=D:\Projects\vtk
 SET VTK_SRC=%VTK_ROOT%\src
-SET VTK_BLD=%VTK_ROOT%\bld-opengl2-qt5-vs12
+SET VTK_BLD=%VTK_ROOT%\bld
 
 SET CLEAN_BLD=n
-IF EXIST %VTK_BLD% (SET /p CLEAN_BLD="%VTK_BLD% exists. Clean build tree?[y/N]: ")
+IF EXIST %VTK_BLD% (
+	SET /p CLEAN_BLD="%VTK_BLD% exists. Clean build tree?[y/N]: "
+) ELSE (
+	MKDIR %VTK_BLD%
+)
+
 IF %CLEAN_BLD% EQU y (
 	RMDIR /Q /S %VTK_BLD%
-	MKDIR %VTK_BLD%)
+	MKDIR %VTK_BLD%
+)
 
 cd /D %VTK_BLD%
 
-CALL cmake.exe -G"Visual Studio 12 2013 Win64" ^
+CALL cmake.exe -G"Visual Studio 14 2015 Win64" ^
                -DModule_vtkGUISupportQt:BOOL=ON ^
                -DVTK_DEBUG_LEAKS:BOOL=ON ^
                -DBUILD_SHARED_LIBS:BOOL=ON ^
