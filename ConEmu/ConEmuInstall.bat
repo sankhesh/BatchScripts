@@ -1,1 +1,1 @@
-powershell -NoProfile -ExecutionPolicy Unrestricted -Command "set ver 'alpha'; set dst 'D:\Software\ConEmu_tmp'; set lnk $FALSE; set xml '%cd%\ConEmu.xml'; iex ((new-object net.webclient).DownloadString('https://conemu.github.io/install2.ps1'))"
+powershell -NoProfile -ExecutionPolicy Unrestricted -Command "set ver 'alpha'; set dst 'D:\Software\ConEmu'; set lnk $TRUE; set xml 'https://raw.githubusercontent.com/sankhesh/BatchScripts/master/ConEmu/ConEmu.xml'; iex ((new-object net.webclient).DownloadString('https://conemu.github.io/install2.ps1'))"
