@@ -8,6 +8,7 @@ QT_PATH=/home/sankhesh/Projects/Qt
 
 QT_SRC=$QT_PATH/src
 QT_BLD=$QT_PATH/bld
+QT_INSTALL=$QT_PATH/install
 export QTDIR=$QT_BLD/qtbase
 export PATH=$QT_BLD/bin:$QT_SRC/qtrepotools/bin:$PATH
 
@@ -44,7 +45,7 @@ fi
 if [ $INIT == "y" -o $INIT == "Y" ]; then
   cd $QT_SRC
   perl init-repository \
-	--module-subset=all,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtconnectivity,-qtdoc,-qtdocgallery,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtwinextras,-qtx11extras
+	--module-subset=all,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtconnectivity,-qtdoc,-qtdocgallery,-qtengineio,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtwinextras,-qtx11extras
 fi
 
 # Get the current checked out tag
@@ -62,6 +63,7 @@ cd $QT_BLD
 $QT_SRC/configure -opensource -confirm-license -debug-and-release \
   -platform linux-g++ -no-icu -opengl desktop \
   -nomake tests -nomake examples -qt-xcb\
+  -prefix $QT_INSTALL
   -skip qt3d \
   -skip qtactiveqt \
   -skip qtandroidextras \
@@ -69,6 +71,7 @@ $QT_SRC/configure -opensource -confirm-license -debug-and-release \
   -skip qtconnectivity \
   -skip qtdoc \
   -skip qtdocgallery \
+  -skip qtengineio \
   -skip qtfeedback \
   -skip qtlocation \
   -skip qtmacextras \
@@ -85,6 +88,10 @@ $QT_SRC/configure -opensource -confirm-license -debug-and-release \
 printf "\n[INFO] Configure complete. Initiating build."
 make -j24
 printf "\n[INFO] Build complete."
+
+printf "\n[INFO] Initiating install."
+make install -j24
+printf "\n[INFO] Install complete."
 
 cd $CWD
 END=$(date +%s)
