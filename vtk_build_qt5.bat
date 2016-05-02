@@ -34,5 +34,5 @@ CALL cmake.exe -G"Visual Studio 14 2015 Win64" ^
                -DVTK_RENDERING_BACKEND:STRING=OpenGL2 ^
                %VTK_SRC%
 
-c:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe /v:m /p:Configuration=Debug VTK.sln
+MSBuild.exe /v:m /p:Configuration=Debug VTK.sln
 cd /D %CURRENT_DIR%
