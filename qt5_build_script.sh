@@ -45,14 +45,15 @@ fi
 if [ $INIT == "y" -o $INIT == "Y" ]; then
   cd $QT_SRC
   perl init-repository \
-	--module-subset=all,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtconnectivity,-qtdoc,-qtdocgallery,-qtengineio,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtwinextras,-qtx11extras
+	--module-subset=all,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtconnectivity,-qtdoc,-qtdocgallery,-qtengineio,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtwinextras
 fi
 
 # Get the current checked out tag
 cd $QT_SRC
 TAG=$(git describe)
-printf "\n[QUESTION] TAG to build [$TAG]"
-read TAG
+TAG="v5.7.0"
+#printf "\n[QUESTION] TAG to build [$TAG]"
+#read TAG
 if [ ! -z $TAG ]; then
   printf "\n[INFO] Checking out tag: $TAG"
   git checkout $TAG
@@ -82,8 +83,7 @@ $QT_SRC/configure -opensource -confirm-license -debug-and-release \
   -skip qttranslations \
   -skip qtwebengine \
   -skip qtwebkit \
-  -skip qtwinextras \
-  -skip qtx11extras
+  -skip qtwinextras
 
 printf "\n[INFO] Configure complete. Initiating build."
 make -j24
