@@ -2,12 +2,12 @@
 
 SET CURRENT_DIR="%CD%"
 
-SET QT_BLD=D:\Projects\Qt\bld
+SET QT_BLD=C:\Projects\Qt\bld
 SET CMAKE_PREFIX_PATH=%QT_BLD%\qtbase\lib\cmake
-SET PATH=D:\Projects\CMake\install\bin;%PATH%
+SET PATH=C:\Projects\CMake\install\bin;%PATH%
 
-SET VTK_ROOT=D:\Projects\vtk
-SET VTK_SRC=%VTK_ROOT%\src
+SET VTK_ROOT=C:\Projects\VTK
+SET VTK_SRC=%VTK_ROOT%\VTK
 SET VTK_BLD=%VTK_ROOT%\bld
 
 SET CLEAN_BLD=n
