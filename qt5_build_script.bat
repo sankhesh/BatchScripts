@@ -41,8 +41,16 @@ if %SRC_EXISTED% GTR 0 (
 if %CLEAN_BLD% EQU y (
 	rmdir /Q /S %QT_BLD%
 )
-
 mkdir %QT_BLD%
+
+cd /D %QT_SRC%
+REM Get currently checked out tag
+for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
+if %SRC_EXISTED% GTR 0 (
+  call %GIT_EXE% fetch origin --tags --prune
+)
+set /p TAG="TAG to build [%TAG%]: "
+call %GIT_EXE% checkout %TAG%
 
 set INIT=n
 if %SRC_EXISTED% GTR 0 (
@@ -50,17 +58,17 @@ if %SRC_EXISTED% GTR 0 (
 ) else (
 	set INIT=y
 )
-if %INIT% EQU y (
-	cd /D %QT_SRC%
-	%PERL_DIR%\perl\bin\perl.exe init-repository --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtconnectivity,-qtdoc,-qtdocgallery,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtx11extras,-qtcharts,-qtcharts,-qtwayland,-qtserialbus,-qtscxml,-qtnetworkauth,-qtdatavis3d,-qtgamepad,-qtpurchasing,-qtwebchannel,-qtserialport,-qtspeech,-qtgraphicaleffects,-qtvirtualkeyboard,-qtmultimedia,-qtimageformats
-)
 
-cd /D %QT_SRC%
-REM Get currently checked out tag
-for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
-set /p TAG="TAG to build [%TAG%]: "
-call %GIT_EXE% checkout %TAG%
-call %GIT_EXE% submodule update
+if %INIT% EQU y (
+  set FORCE_UPDATE=""
+  if %SRC_EXISTED% GTR 0 (
+    set FORCE_UPDATE="-f"
+  )
+	cd /D %QT_SRC%
+	%PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtconnectivity,-qtdoc,-qtdocgallery,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtx11extras,-qtcharts,-qtcharts,-qtwayland,-qtserialbus,-qtscxml,-qtnetworkauth,-qtdatavis3d,-qtgamepad,-qtpurchasing,-qtwebchannel,-qtserialport,-qtspeech,-qtgraphicaleffects,-qtvirtualkeyboard,-qtmultimedia,-qtimageformats
+) else (
+  call %GIT_EXE% submodule update
+)
 
 cd /D %QT_BLD%
 call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
@@ -101,7 +109,7 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
 	-skip qtimageformats
 
 call %JOM_DIR%\jom.exe
-rem call %JOM_DIR%\jom.exe install
+call %JOM_DIR%\jom.exe install
 
 rem nmake
 rem nmake qdoc3
