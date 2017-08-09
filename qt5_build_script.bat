@@ -7,10 +7,10 @@ rem Set up \Microsoft Visual Studio 2015, where <arch> is \c amd64, \c x86, etc.
 rem No need to do this if running from Visual Studio Native Tools x64 command prompt
 rem CALL "C:\Program Files(x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
 
-set PYTHON_DIR=D:\Software\Python27\
-set PERL_DIR=D:\Software\StrawberryPerl\
-set JOM_DIR=D:\Software\jom\
-set QT_PATH=D:\Projects\Qt
+set PYTHON_DIR=C:\Software\Python27\
+set PERL_DIR=C:\Software\StrawberryPerl\
+set JOM_DIR=C:\Software\jom\
+set QT_PATH=C:\Projects\Qt
 set GIT_PATH="%PROGRAMFILES%\Git"
 set GIT_EXE=%GIT_PATH%\bin\git.exe
 
