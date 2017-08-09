@@ -1,4 +1,5 @@
-@ECHO OFF
+rem @ECHO OFF
+setlocal enabledelayedexpansion
 
 echo %time%
 set CURRENT_DIR="%CD%"
@@ -56,8 +57,9 @@ set INIT=n
 set FORCE_UPDATE=""
 if %SRC_EXISTED% GTR 0 (
   set /p INIT="Initialize Qt submodules?[y/N]: "
-  if %INIT% EQU y (
+  if !INIT! EQU y (
     set FORCE_UPDATE="-f"
+    echo "FORCE_UPDATE = !FORCE_UPDATE!"
   )
 ) else (
   set INIT=y
