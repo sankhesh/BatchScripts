@@ -34,34 +34,42 @@ if [ $CLEAN_BLD == "y" -o $CLEAN_BLD == "Y" ]; then
   mkdir -p $QT_BLD
 fi
 
+# Get the current checked out tag
+cd $QT_SRC
+TAG=$(git describe)
+if [ ! -z $SRC_EXISTED ]; then
+  git fetch origin --tags --prune
+fi
+#TAG="v5.7.0"
+printf "\n[QUESTION] TAG to build [$TAG]"
+read TAG
+if [ ! -z $TAG ]; then
+  printf "\n[INFO] Checking out tag: $TAG\n"
+  git checkout $TAG
+fi
+
 INIT="n"
+FORCE_UPDATE=""
 if [ ! -z $SRC_EXISTED ]; then
   printf "\n[QUESTION] Initialize Qt submodules? [y/N]:"
   read INIT
+  if [ $INIT == "y" -o $INIT == "Y" ]; then
+    FORCE_UPDATE="-f"
+  fi
 else
   INIT="y"
 fi
 
-if [ $INIT == "y" -o $INIT == "Y" ]; then
-  cd $QT_SRC
-  perl init-repository \
-	--module-subset=all,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtconnectivity,-qtdoc,-qtdocgallery,-qtengineio,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtwinextras
-fi
-
-# Get the current checked out tag
 cd $QT_SRC
-TAG=$(git describe)
-TAG="v5.7.0"
-#printf "\n[QUESTION] TAG to build [$TAG]"
-#read TAG
-if [ ! -z $TAG ]; then
-  printf "\n[INFO] Checking out tag: $TAG"
-  git checkout $TAG
+if [ $INIT == "y" -o $INIT == "Y" ]; then
+  perl init-repository $FORCE_UPDATE --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtengineio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtimageformats,-qtlocation,-qtmacextras,-qtmultimedia,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtwebkit,-qtwinextras
+else
+  git submodule update
 fi
 
 printf "\n[INFO] All checks complete. Initiating configure step."
 cd $QT_BLD
-$QT_SRC/configure -opensource -confirm-license -debug-and-release \
+$QT_SRC/configure -opensource -confirm-license -release \
   -platform linux-g++ -no-icu -opengl desktop \
   -nomake tests -nomake examples -qt-xcb\
   -prefix $QT_INSTALL
@@ -69,18 +77,32 @@ $QT_SRC/configure -opensource -confirm-license -debug-and-release \
   -skip qtactiveqt \
   -skip qtandroidextras \
   -skip qtcanvas3d \
+  -skip qtcharts \
   -skip qtconnectivity \
+  -skip qtdatavis3d \
   -skip qtdoc \
   -skip qtdocgallery \
   -skip qtengineio \
   -skip qtfeedback \
+  -skip qtgamepad \
+  -skip qtgraphicaleffects \
+  -skip qtimageformats \
   -skip qtlocation \
   -skip qtmacextras \
+  -skip qtmultimedia \
   -skip qtpim \
+  -skip qtpurchasing \
   -skip qtqa \
   -skip qtscript \
+  -skip qtscxml \
   -skip qtsensors \
+  -skip qtserialbus \
+  -skip qtserialport \
+  -skip qtspeech \
   -skip qttranslations \
+  -skip qtvirtualkeyboard \
+  -skip qtwayland \
+  -skip qtwebchannel \
   -skip qtwebengine \
   -skip qtwebkit \
   -skip qtwinextras

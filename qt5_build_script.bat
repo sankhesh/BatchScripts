@@ -53,19 +53,19 @@ set /p TAG="TAG to build [%TAG%]: "
 call %GIT_EXE% checkout %TAG%
 
 set INIT=n
+set FORCE_UPDATE=""
 if %SRC_EXISTED% GTR 0 (
-	set /p INIT="Initialize Qt submodules?[y/N]: "
+  set /p INIT="Initialize Qt submodules?[y/N]: "
+  if %INIT% EQU y (
+    set FORCE_UPDATE="-f"
+  )
 ) else (
-	set INIT=y
+  set INIT=y
 )
 
 if %INIT% EQU y (
-  set FORCE_UPDATE=""
-  if %SRC_EXISTED% GTR 0 (
-    set FORCE_UPDATE="-f"
-  )
-	cd /D %QT_SRC%
-	%PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtconnectivity,-qtdoc,-qtdocgallery,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtx11extras,-qtcharts,-qtcharts,-qtwayland,-qtserialbus,-qtscxml,-qtnetworkauth,-qtdatavis3d,-qtgamepad,-qtpurchasing,-qtwebchannel,-qtserialport,-qtspeech,-qtgraphicaleffects,-qtvirtualkeyboard,-qtmultimedia,-qtimageformats
+  cd /D %QT_SRC%
+  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdoc,-qtdocgallery,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtx11extras,-qtcharts,-qtcharts,-qtwayland,-qtserialbus,-qtscxml,-qtnetworkauth,-qtdatavis3d,-qtgamepad,-qtpurchasing,-qtwebchannel,-qtserialport,-qtspeech,-qtgraphicaleffects,-qtvirtualkeyboard,-qtmultimedia,-qtimageformats
 ) else (
   call %GIT_EXE% submodule update
 )
@@ -79,6 +79,7 @@ call %QT_SRC%\configure -opensource -confirm-license -release ^
 	-skip qtactiveqt ^
 	-skip qtandroidextras ^
 	-skip qtcanvas3d ^
+	-skip qtcharts ^
 	-skip qtconnectivity ^
 	-skip qtdoc ^
 	-skip qtdocgallery ^
