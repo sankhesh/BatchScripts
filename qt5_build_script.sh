@@ -6,7 +6,7 @@ CWD=$(pwd)
 
 QT_PATH=/home/sankhesh/Projects/Qt
 
-QT_SRC=$QT_PATH/src
+QT_SRC=$QT_PATH/qt5
 QT_BLD=$QT_PATH/bld
 QT_INSTALL=$QT_PATH/install
 export QTDIR=$QT_BLD/qtbase
