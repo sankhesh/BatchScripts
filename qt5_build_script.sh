@@ -41,11 +41,19 @@ if [ ! -z $SRC_EXISTED ]; then
   git fetch origin --tags --prune
 fi
 #TAG="v5.7.0"
-printf "\n[QUESTION] TAG to build [$TAG]"
+printf "\n[QUESTION] TAG to build [$TAG] (Enter t to list all tags):"
 read TAG
 if [ ! -z $TAG ]; then
-  printf "\n[INFO] Checking out tag: $TAG\n"
-  git checkout $TAG
+  while [ $TAG == "t" -o $TAG == "T" ]; do
+    git tag -l
+    TAG=$(git describe)
+    printf "\n[QUESTION] TAG to build [$TAG] (Enter t to list all tags):"
+    read TAG
+  done
+  if [ ! -z $TAG ]; then
+    printf "\n[INFO] Checking out tag: $TAG\n"
+    git checkout $TAG
+  fi
 fi
 
 INIT="n"
@@ -62,7 +70,7 @@ fi
 
 cd $QT_SRC
 if [ $INIT == "y" -o $INIT == "Y" ]; then
-  perl init-repository $FORCE_UPDATE --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtengineio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtimageformats,-qtlocation,-qtmacextras,-qtmultimedia,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtwebkit,-qtwinextras
+  perl init-repository $FORCE_UPDATE --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtenginio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtimageformats,-qtlocation,-qtmacextras,-qtmultimedia,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtwinextras
 else
   git submodule update
 fi
@@ -72,7 +80,10 @@ cd $QT_BLD
 $QT_SRC/configure -opensource -confirm-license -release \
   -platform linux-g++ -no-icu -opengl desktop \
   -nomake tests -nomake examples -qt-xcb\
-  -prefix $QT_INSTALL
+  -prefix $QT_INSTALL \
+  -fontconfig \
+  -I /usr/include/openssl-1.0 \
+  -L /usr/lib/openssl-1.0 \
   -skip qt3d \
   -skip qtactiveqt \
   -skip qtandroidextras \
@@ -82,7 +93,7 @@ $QT_SRC/configure -opensource -confirm-license -release \
   -skip qtdatavis3d \
   -skip qtdoc \
   -skip qtdocgallery \
-  -skip qtengineio \
+  -skip qtenginio \
   -skip qtfeedback \
   -skip qtgamepad \
   -skip qtgraphicaleffects \
@@ -104,7 +115,7 @@ $QT_SRC/configure -opensource -confirm-license -release \
   -skip qtwayland \
   -skip qtwebchannel \
   -skip qtwebengine \
-  -skip qtwebkit \
+  #-skip qtwebkit \
   -skip qtwinextras
 
 printf "\n[INFO] Configure complete. Initiating build."
