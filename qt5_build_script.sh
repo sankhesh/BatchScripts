@@ -41,13 +41,13 @@ if [ ! -z $SRC_EXISTED ]; then
   git fetch origin --tags --prune
 fi
 #TAG="v5.7.0"
-printf "\n[QUESTION] TAG to build [$TAG] (Enter t to list all tags):"
+printf "\n[QUESTION] TAG to build [$TAG] (Enter 't' to list all tags):"
 read TAG
 if [ ! -z $TAG ]; then
   while [ $TAG == "t" -o $TAG == "T" ]; do
     git tag -l
     TAG=$(git describe)
-    printf "\n[QUESTION] TAG to build [$TAG] (Enter t to list all tags):"
+    printf "\n[QUESTION] TAG to build [$TAG] (Enter 't' to list all tags):"
     read TAG
   done
   if [ ! -z $TAG ]; then

@@ -1,5 +1,5 @@
 rem @ECHO OFF
-setlocal enabledelayedexpansion
+setlocal enableextensions enabledelayedexpansion
 
 echo %time%
 set CURRENT_DIR="%CD%"
@@ -45,19 +45,28 @@ if %CLEAN_BLD% EQU y (
 mkdir %QT_BLD%
 
 cd /D %QT_SRC%
-REM Get currently checked out tag
-for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
 if %SRC_EXISTED% GTR 0 (
   call %GIT_EXE% fetch origin --tags --prune
 )
-set /p TAG="TAG to build [%TAG%]: "
+
+REM Get currently checked out tag
+for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
+set /p TAG="TAG to build [%TAG%] (Enter 't' to list all tags): "
+:while1
+  if /I %TAG% EQU t (
+    call %GIT_EXE% tag -l
+    for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
+    set /p TAG="TAG to build [%TAG%] (Enter 't' to list all tags): "
+    goto :while1
+  )
+echo "Checking out tag: %TAG%"
 call %GIT_EXE% checkout %TAG%
 
 set INIT=n
 set FORCE_UPDATE=""
 if %SRC_EXISTED% GTR 0 (
   set /p INIT="Initialize Qt submodules?[y/N]: "
-  if !INIT! EQU y (
+  if /I %INIT% EQU y (
     set FORCE_UPDATE="-f"
     echo "FORCE_UPDATE = !FORCE_UPDATE!"
   )
@@ -65,7 +74,7 @@ if %SRC_EXISTED% GTR 0 (
   set INIT=y
 )
 
-if %INIT% EQU y (
+if /I %INIT% EQU y (
   cd /D %QT_SRC%
   %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdoc,-qtdocgallery,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtx11extras,-qtcharts,-qtcharts,-qtwayland,-qtserialbus,-qtscxml,-qtnetworkauth,-qtdatavis3d,-qtgamepad,-qtpurchasing,-qtwebchannel,-qtserialport,-qtspeech,-qtgraphicaleffects,-qtvirtualkeyboard,-qtmultimedia,-qtimageformats
 ) else (
