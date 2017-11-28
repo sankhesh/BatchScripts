@@ -70,7 +70,7 @@ fi
 
 cd $QT_SRC
 if [ $INIT == "y" -o $INIT == "Y" ]; then
-  perl init-repository $FORCE_UPDATE --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtenginio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtimageformats,-qtlocation,-qtmacextras,-qtmultimedia,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtwinextras
+  perl init-repository $FORCE_UPDATE --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtenginio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtimageformats,-qtlocation,-qtmacextras,-qtmultimedia,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtwinextras
 else
   git submodule update
 fi
@@ -115,7 +115,6 @@ $QT_SRC/configure -opensource -confirm-license -release \
   -skip qtwayland \
   -skip qtwebchannel \
   -skip qtwebengine \
-  #-skip qtwebkit \
   -skip qtwinextras
 
 printf "\n[INFO] Configure complete. Initiating build."

@@ -76,7 +76,7 @@ if %SRC_EXISTED% GTR 0 (
 
 if /I %INIT% EQU y (
   cd /D %QT_SRC%
-  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdoc,-qtdocgallery,-qtfeedback,-qtlocation,-qtmacextras,-qtpim,-qtqa,-qtscript,-qtsensors,-qttranslations,-qtwebengine,-qtwebkit,-qtx11extras,-qtcharts,-qtcharts,-qtwayland,-qtserialbus,-qtscxml,-qtnetworkauth,-qtdatavis3d,-qtgamepad,-qtpurchasing,-qtwebchannel,-qtserialport,-qtspeech,-qtgraphicaleffects,-qtvirtualkeyboard,-qtmultimedia,-qtimageformats
+  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtenginio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtimageformats,-qtlocation,-qtmacextras,-qtmultimedia,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
 ) else (
   call %GIT_EXE% submodule update
 )
@@ -92,33 +92,32 @@ call %QT_SRC%\configure -opensource -confirm-license -release ^
   -skip qtcanvas3d ^
   -skip qtcharts ^
   -skip qtconnectivity ^
+  -skip qtdatavis3d ^
   -skip qtdoc ^
   -skip qtdocgallery ^
+  -skip qtenginio ^
   -skip qtfeedback ^
+  -skip qtgamepad ^
+  -skip qtgraphicaleffects ^
+  -skip qtimageformats ^
   -skip qtlocation ^
   -skip qtmacextras ^
+  -skip qtmultimedia ^
   -skip qtpim ^
+  -skip qtpurchasing ^
   -skip qtqa ^
   -skip qtscript ^
+  -skip qtscxml ^
   -skip qtsensors ^
-  -skip qttranslations ^
-  -skip qtwebengine ^
-  -skip qtwebkit ^
-  -skip qtx11extras ^
-  -skip qtcharts ^
-  -skip qtwayland ^
   -skip qtserialbus ^
   -skip qtserialport ^
-  -skip qtscxml ^
-  -skip qtdatavis3d ^
-  -skip qtgamepad ^
-  -skip qtpurchasing ^
-  -skip qtwebchannel ^
   -skip qtspeech ^
-  -skip qtgraphicaleffects ^
+  -skip qttranslations ^
   -skip qtvirtualkeyboard ^
-  -skip qtmultimedia ^
-  -skip qtimageformats
+  -skip qtwayland ^
+  -skip qtwebchannel ^
+  -skip qtwebengine ^
+  -skip qtx11extras
 
 call %JOM_DIR%\jom.exe
 call %JOM_DIR%\jom.exe install
