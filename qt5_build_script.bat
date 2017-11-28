@@ -53,10 +53,10 @@ REM Get currently checked out tag
 for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
 set /p TAG="TAG to build [%TAG%] (Enter 't' to list all tags): "
 :while1
-  if /I %TAG% EQU t (
+  if /I !TAG! EQU t (
     call %GIT_EXE% tag -l
-    for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
-    set /p TAG="TAG to build [%TAG%] (Enter 't' to list all tags): "
+    for /f "tokens=1"  %%i in ('git describe') do set TAG=%%i
+    set /p TAG="TAG to build [!TAG!] (Enter 't' to list all tags): "
     goto :while1
   )
 echo "Checking out tag: %TAG%"
@@ -66,7 +66,7 @@ set INIT=n
 set FORCE_UPDATE=""
 if %SRC_EXISTED% GTR 0 (
   set /p INIT="Initialize Qt submodules?[y/N]: "
-  if /I %INIT% EQU y (
+  if /I !INIT! EQU Y (
     set FORCE_UPDATE="-f"
     echo "FORCE_UPDATE = !FORCE_UPDATE!"
   )
@@ -74,7 +74,7 @@ if %SRC_EXISTED% GTR 0 (
   set INIT=y
 )
 
-if /I %INIT% EQU y (
+if /I !INIT! EQU Y (
   cd /D %QT_SRC%
   %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtenginio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtimageformats,-qtlocation,-qtmacextras,-qtmultimedia,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
 ) else (
@@ -83,7 +83,7 @@ if /I %INIT% EQU y (
 
 cd /D %QT_BLD%
 call %QT_SRC%\configure -opensource -confirm-license -release ^
-  -mp -platform win32-msvc2015 -no-icu -opengl desktop -verbose^
+  -mp -platform win32-msvc2017 -no-icu -opengl desktop -verbose^
   -nomake tests -nomake examples ^
   -prefix %QT_INSTALL% ^
   -skip qt3d ^
