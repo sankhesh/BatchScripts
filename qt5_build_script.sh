@@ -45,7 +45,7 @@ printf "\n[QUESTION] TAG to build [$TAG] (Enter 't' to list all tags):"
 read TAG
 if [ ! -z $TAG ]; then
   while [ $TAG == "t" -o $TAG == "T" ]; do
-    git tag -l
+    git tag -l --sort -version:refname
     TAG=$(git describe)
     printf "\n[QUESTION] TAG to build [$TAG] (Enter 't' to list all tags):"
     read TAG
