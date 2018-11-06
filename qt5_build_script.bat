@@ -8,10 +8,10 @@ rem Set up \Microsoft Visual Studio 2015, where <arch> is \c amd64, \c x86, etc.
 rem No need to do this if running from Visual Studio Native Tools x64 command prompt
 rem CALL "C:\Program Files(x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
 
-set PYTHON_DIR=C:\Software\Python27\
-set PERL_DIR=C:\Software\StrawberryPerl\
-set JOM_DIR=C:\Software\jom\
-set QT_PATH=C:\Projects\Qt
+set PYTHON_DIR=D:\Software\Python27\
+set PERL_DIR=D:\Software\StrawberryPerl\
+set JOM_DIR=D:\Software\jom\
+set QT_PATH=D:\Projects\Qt
 set GIT_PATH="%PROGRAMFILES%\Git"
 set GIT_EXE=%GIT_PATH%\bin\git.exe
 
@@ -54,7 +54,7 @@ for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
 set /p TAG="TAG to build [%TAG%] (Enter 't' to list all tags): "
 :while1
   if /I !TAG! EQU t (
-    call %GIT_EXE% tag -l
+    call %GIT_EXE% tag -l --sort -version:refname
     for /f "tokens=1"  %%i in ('git describe') do set TAG=%%i
     set /p TAG="TAG to build [!TAG!] (Enter 't' to list all tags): "
     goto :while1
@@ -76,13 +76,13 @@ if %SRC_EXISTED% GTR 0 (
 
 if /I !INIT! EQU Y (
   cd /D %QT_SRC%
-  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtenginio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtimageformats,-qtlocation,-qtmacextras,-qtmultimedia,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
+  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtenginio,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtmultimedia,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
 ) else (
   call %GIT_EXE% submodule update
 )
 
 cd /D %QT_BLD%
-call %QT_SRC%\configure -opensource -confirm-license -release ^
+call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -mp -platform win32-msvc2017 -no-icu -opengl desktop -verbose^
   -nomake tests -nomake examples ^
   -prefix %QT_INSTALL% ^
@@ -99,7 +99,6 @@ call %QT_SRC%\configure -opensource -confirm-license -release ^
   -skip qtfeedback ^
   -skip qtgamepad ^
   -skip qtgraphicaleffects ^
-  -skip qtimageformats ^
   -skip qtlocation ^
   -skip qtmacextras ^
   -skip qtmultimedia ^
