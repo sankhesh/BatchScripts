@@ -19,7 +19,7 @@ set QT_SRC=%QT_PATH%\qt5
 set QT_BLD=%QT_PATH%\bld
 set QT_INSTALL=%QT_PATH%\install
 set QTDIR=%QT_BLD%\qtbase
-REM set QMAKESPEC=win32-msvc2015
+rem set QMAKESPEC=win32-msvc2017
 set PATH=%QT_BLD%\bin;%QTDIR%\bin;%QT_SRC%\qtrepotools\bin;%QT_SRC%\gnuwin32\bin;%PYTHON_DIR%;"%GIT_PATH%\bin";%PERL_DIR%\perl\bin;%PATH%
 
 set SRC_EXISTED=1
@@ -76,7 +76,7 @@ if %SRC_EXISTED% GTR 0 (
 
 if /I !INIT! EQU Y (
   cd /D %QT_SRC%
-  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtmultimedia,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtserialport,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
+  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtmultimedia,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
 ) else (
   call %GIT_EXE% submodule update
 )
@@ -108,7 +108,6 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qtscxml ^
   -skip qtsensors ^
   -skip qtserialbus ^
-  -skip qtserialport ^
   -skip qtspeech ^
   -skip qttranslations ^
   -skip qtvirtualkeyboard ^
@@ -116,6 +115,7 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qtwebchannel ^
   -skip qtwebengine ^
   -skip qtx11extras
+
 
 call %JOM_DIR%\jom.exe
 call %JOM_DIR%\jom.exe install
