@@ -1,0 +1,7 @@
+# Tweak Windows Git bash prompt
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="git verbose name"
+export GIT_PS1_SHOWCOLORHINTS=1
