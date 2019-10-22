@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2018-03-26 13:31:20" build="180318">
+		<key name=".Vanilla" modified="2019-10-21 23:24:06" build="191012">
 			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
 			<value name="UseInjects" type="hex" data="01"/>
@@ -91,6 +91,8 @@
 			<value name="StoreTaskbarCommands" type="hex" data="00"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{Bash::bash}"/>
+				<line data="{SDK::VS 12.0 x64 tools}"/>
 				<line data='"C:\WINDOWS\SYSTEM32\cmd.exe"  /k "%ConEmuBaseDir%\CmdInit.cmd"'/>
 				<line data="{Shells::cmd (Admin)}"/>
 				<line data="{SDK::VS 14.0 x86 tools prompt}"/>
@@ -98,7 +100,6 @@
 				<line data="{Shells::cmd}"/>
 				<line data="{Shells::PowerShell (Admin)}"/>
 				<line data="{Shells::cmd 64/32}"/>
-				<line data="{Bash::Git bash}"/>
 			</value>
 			<value name="ShowHelpTooltips" type="hex" data="01"/>
 			<value name="Multi" type="hex" data="01"/>
@@ -143,7 +144,7 @@
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
 			<value name="UseCurrentSizePos" type="hex" data="01"/>
-			<value name="WindowMode" type="dword" data="0000051f"/>
+			<value name="WindowMode" type="dword" data="00000520"/>
 			<value name="ConWnd Width" type="dword" data="00000082"/>
 			<value name="ConWnd Height" type="dword" data="00000022"/>
 			<value name="Cascaded" type="hex" data="01"/>
@@ -557,7 +558,7 @@
 			<value name="TabModifiedSuffix" type="string" data="[*]"/>
 			<value name="Update.InetTool" type="hex" data="00"/>
 			<value name="Update.InetToolCmd" type="string" data=""/>
-			<key name="HotKeys" modified="2018-03-26 13:31:20" build="180318">
+			<key name="HotKeys" modified="2019-10-21 23:24:06" build="191012">
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="0000005b"/>
 				<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
@@ -750,11 +751,12 @@
 				<value name="Key.BufPrUp" type="dword" data="00121121"/>
 				<value name="Key.BufPrDn" type="dword" data="00121122"/>
 				<value name="Multi.GroupInputKey" type="dword" data="00125d47"/>
+				<value name="CheckUpdates" type="dword" data="00105b55"/>
 				<value name="Multi.NewWndConfirm" type="dword" data="00000000"/>
 				<value name="CloseToRightKey" type="dword" data="00000000"/>
 			</key>
-			<key name="Tasks" modified="2017-09-28 11:10:11" build="170910">
-				<value name="Count" type="long" data="14"/>
+			<key name="Tasks" modified="2019-10-21 23:24:06" build="191012">
+				<value name="Count" type="long" data="16"/>
 				<key name="Task1" modified="2017-09-28 11:10:11" build="170910">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000002"/>
@@ -819,12 +821,12 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task8" modified="2017-09-28 11:10:11" build="170910">
+				<key name="Task8" modified="2019-10-21 23:24:06" build="191012">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00105b47"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data='"%ProgramW6432%\Git\git-cmd.exe" --no-cd --command=usr/bin/bash.exe -l -i'/>
+					<value name="Cmd1" type="string" data='set "PATH=%ConEmuDrive%\Program Files\Git\usr\bin;%PATH%" &amp; "%ConEmuDrive%\Program Files\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:p'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -883,6 +885,24 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
+				<key name="Task15" modified="2019-10-21 23:24:06" build="191012">
+					<value name="Name" type="string" data="{SDK::VS 15.0 x86 tools prompt}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='cmd /k ""%ConEmuDrive%\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"" x86 -new_console:t:"VS 15.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,38"'/>
+				</key>
+				<key name="Task16" modified="2019-10-21 23:24:06" build="191012">
+					<value name="Name" type="string" data="{SDK::VS 15.0 x64 tools prompt}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='cmd /k ""%ConEmuDrive%\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"" x64 -new_console:t:"VS 15.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,38"'/>
+				</key>
 			</key>
 			<key name="Apps" modified="2017-09-28 11:14:28" build="170910">
 				<value name="Count" type="long" data="0"/>
@@ -899,7 +919,7 @@
 			<value name="SuppressBells" type="hex" data="01"/>
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="CompressLongStrings" type="hex" data="01"/>
-			<value name="LastMonitor" type="string" data="0,0,1440,860"/>
+			<value name="LastMonitor" type="string" data="0,0,1920,1030"/>
 			<value name="Restore2ActiveMon" type="hex" data="00"/>
 			<value name="CTS.ResetOnRelease" type="hex" data="00"/>
 			<value name="CTS.EraseBeforeReset" type="hex" data="01"/>
@@ -913,7 +933,13 @@
 			<value name="StatusBar.Hide.CellI" type="hex" data="01"/>
 			<value name="ClipboardAllLinesPosix" type="hex" data="00"/>
 			<value name="ClipboardFirstLinePosix" type="hex" data="00"/>
+			<value name="Language" type="string" data="en"/>
+			<value name="AnsiLogCodes" type="hex" data="00"/>
+			<value name="RestoreInactive" type="hex" data="00"/>
 			<value name="DynamicBufferHeight" type="hex" data="01"/>
+			<value name="AutoReloadEnvironment" type="hex" data="01"/>
+			<value name="AutoTrimSingleLine" type="hex" data="00"/>
+			<value name="StatusBar.Hide.InputGrouping" type="hex" data="00"/>
 			<value name="StatusBar.Hide.WMode" type="hex" data="01"/>
 		</key>
 	</key>
