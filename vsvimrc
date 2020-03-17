@@ -1,0 +1,12 @@
+
+" Opacity for the caret block
+set vsvimcaret=50
+
+" magic
+set magic
+
+" search options
+set ignorecase
+set smartcase
+set incsearch
+set nohlsearch
