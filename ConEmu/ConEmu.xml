@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2020-06-30 13:08:26" build="200615">
+		<key name=".Vanilla" modified="2020-06-30 19:41:54" build="200615">
 			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
 			<value name="UseInjects" type="hex" data="01"/>
@@ -9,16 +9,16 @@
 			<value name="Update.CheckHourly" type="hex" data="00"/>
 			<value name="Update.ConfirmDownload" type="hex" data="00"/>
 			<value name="Update.UseBuilds" type="hex" data="02"/>
-			<value name="ColorTable00" type="dword" data="00000000"/>
+			<value name="ColorTable00" type="dword" data="000c0c0c"/>
 			<value name="ColorTable01" type="dword" data="00ee0000"/>
 			<value name="ColorTable02" type="dword" data="0000cd00"/>
 			<value name="ColorTable03" type="dword" data="00cdcd00"/>
 			<value name="ColorTable04" type="dword" data="000000cd"/>
 			<value name="ColorTable05" type="dword" data="00cd00cd"/>
-			<value name="ColorTable06" type="dword" data="0000cdcd"/>
+			<value name="ColorTable06" type="dword" data="001f0fc5"/>
 			<value name="ColorTable07" type="dword" data="00e5e5e5"/>
 			<value name="ColorTable08" type="dword" data="007f7f7f"/>
-			<value name="ColorTable09" type="dword" data="00ff5c5c"/>
+			<value name="ColorTable09" type="dword" data="00ff8080"/>
 			<value name="ColorTable10" type="dword" data="0000ff00"/>
 			<value name="ColorTable11" type="dword" data="00ffff00"/>
 			<value name="ColorTable12" type="dword" data="000000ff"/>
