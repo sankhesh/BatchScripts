@@ -1,6 +1,6 @@
 
 " Opacity for the caret block
-set vsvimcaret=50
+set vsvimcaret=100
 
 " magic
 set magic
