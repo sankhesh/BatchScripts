@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2020-07-03 00:46:31" build="200615">
+		<key name=".Vanilla" modified="2020-07-03 09:45:18" build="200615">
 			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
 			<value name="UseInjects" type="hex" data="01"/>
@@ -81,7 +81,7 @@
 			<value name="ProcessNewConArg" type="hex" data="01"/>
 			<value name="ConsoleExceptionHandler" type="hex" data="00"/>
 			<value name="UseClink" type="hex" data="00"/>
-			<value name="StartType" type="hex" data="02"/>
+			<value name="StartType" type="hex" data="01"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
 			<value name="StartTasksName" type="string" data="{Shells::WSL ZSH}"/>
@@ -91,6 +91,7 @@
 			<value name="StoreTaskbarCommands" type="hex" data="00"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{Shells::WSL Ubuntu}"/>
 				<line data="{Shells::PowerShell (Admin)}"/>
 				<line data="{Shells::PowerShell}"/>
 				<line data="{Shells::WSL ZSH}"/>
@@ -815,9 +816,9 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task7" modified="2020-07-03 01:36:31" build="200615">
+				<key name="Task7" modified="2020-07-03 09:45:18" build="200615">
 					<value name="Name" type="string" data="{Shells::WSL Ubuntu}"/>
-					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Flags" type="dword" data="00000005"/>
 					<value name="Hotkey" type="dword" data="00105b42"/>
 					<value name="GuiArgs" type="string" data='/dir %CD% /icon "%ProgramFiles%\WindowsApps\Ubuntu.exe"'/>
 					<value name="Cmd1" type="string" data='chcp 65001 &amp; set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" &amp; wsl.exe ~ -cur_console:C:"Ubuntu"'/>
