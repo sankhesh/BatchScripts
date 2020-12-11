@@ -83,7 +83,7 @@ if /I !INIT! EQU Y (
 )
 
 cd /D %QT_BLD%
-call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
+call %QT_SRC%\configure -opensource -confirm-license -release ^
   -mp -no-icu -opengl desktop^
   -nomake tests -nomake examples ^
   -prefix %QT_INSTALL% ^
