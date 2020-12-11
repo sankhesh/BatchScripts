@@ -84,7 +84,7 @@ if /I !INIT! EQU Y (
 
 cd /D %QT_BLD%
 call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
-  -mp -platform win32-msvc2019 -no-icu -opengl desktop -verbose^
+  -mp -no-icu -opengl desktop^
   -nomake tests -nomake examples ^
   -prefix %QT_INSTALL% ^
   -skip qt3d ^
@@ -117,9 +117,16 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qtwebengine ^
   -skip qtx11extras
 
+set "tagv=%TAG:v=%"
+set "TAGV=%tagv:.=%"
+if %TAGV% LSS 600 (
+  set BLDCMD=%JOM_DIR%\jom.exe
+) else (
+  set BLDCMD=ninja.exe
+)
 
-call %JOM_DIR%\jom.exe
-call %JOM_DIR%\jom.exe install
+call %BLDCMD%
+call %BLDCMD% install
 
 rem nmake
 rem nmake qdoc3
