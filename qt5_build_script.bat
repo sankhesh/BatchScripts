@@ -118,7 +118,8 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
 
 set "tagv=%TAG:v=%"
 set "TAGV=%tagv:.=%"
-if %TAGV% LSS 600 (
+
+if %TAGV:~0,3% LSS 600 (
   set BLDCMD=%JOM_DIR%\jom.exe
 ) else (
   set BLDCMD=ninja.exe
