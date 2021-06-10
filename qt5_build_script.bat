@@ -77,7 +77,7 @@ if %SRC_EXISTED% GTR 0 (
 
 if /I !INIT! EQU Y (
   cd /D %QT_SRC%
-  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtmultimedia,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
+  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
 ) else (
   call %GIT_EXE% submodule update
 )
@@ -101,7 +101,6 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qtgraphicaleffects ^
   -skip qtlocation ^
   -skip qtmacextras ^
-  -skip qtmultimedia ^
   -skip qtpim ^
   -skip qtpurchasing ^
   -skip qtqa ^
