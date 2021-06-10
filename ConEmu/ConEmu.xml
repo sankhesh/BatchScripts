@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2020-08-24 17:11:33" build="200713">
+		<key name=".Vanilla" modified="2021-06-09 21:26:23" build="210422">
 			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
 			<value name="UseInjects" type="hex" data="01"/>
@@ -15,9 +15,9 @@
 			<value name="ColorTable03" type="dword" data="00d6c256"/>
 			<value name="ColorTable04" type="dword" data="007226f9"/>
 			<value name="ColorTable05" type="dword" data="00fe548c"/>
-			<value name="ColorTable06" type="dword" data="001f97fd"/>
-			<value name="ColorTable07" type="dword" data="00c6cccc"/>
-			<value name="ColorTable08" type="dword" data="00545350"/>
+			<value name="ColorTable06" type="dword" data="001b29b4"/>
+			<value name="ColorTable07" type="dword" data="00c0c0c0"/>
+			<value name="ColorTable08" type="dword" data="006f6f6a"/>
 			<value name="ColorTable09" type="dword" data="00e3ad62"/>
 			<value name="ColorTable10" type="dword" data="0046ebb7"/>
 			<value name="ColorTable11" type="dword" data="00e5d894"/>
@@ -150,11 +150,11 @@
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
 			<value name="UseCurrentSizePos" type="hex" data="01"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd Width" type="dword" data="000000d5"/>
+			<value name="ConWnd Width" type="dword" data="000000eb"/>
 			<value name="ConWnd Height" type="dword" data="00000034"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="long" data="214"/>
-			<value name="ConWnd Y" type="long" data="33"/>
+			<value name="ConWnd X" type="long" data="25"/>
+			<value name="ConWnd Y" type="long" data="26"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -330,7 +330,7 @@
 			<value name="MinimizeOnLoseFocus" type="hex" data="00"/>
 			<value name="DisableFarFlashing" type="hex" data="00"/>
 			<value name="DisableAllFlashing" type="hex" data="00"/>
-			<value name="FindText" type="string" data=""/>
+			<value name="FindText" type="string" data="DataManager"/>
 			<value name="FindMatchCase" type="hex" data="00"/>
 			<value name="FindMatchWholeWords" type="hex" data="00"/>
 			<value name="FindTransparent" type="hex" data="01"/>
@@ -563,7 +563,7 @@
 			<value name="TabModifiedSuffix" type="string" data="[*]"/>
 			<value name="Update.InetTool" type="hex" data="00"/>
 			<value name="Update.InetToolCmd" type="string" data=""/>
-			<key name="HotKeys" modified="2019-10-21 23:24:06" build="191012">
+			<key name="HotKeys" modified="2021-05-06 23:12:25" build="210422">
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="0000005b"/>
 				<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
@@ -759,6 +759,8 @@
 				<value name="CheckUpdates" type="dword" data="00105b55"/>
 				<value name="Multi.NewWndConfirm" type="dword" data="00000000"/>
 				<value name="CloseToRightKey" type="dword" data="00000000"/>
+				<value name="Key.EditMenu" type="dword" data="00000000"/>
+				<value name="Key.EditMenu2" type="dword" data="00000000"/>
 			</key>
 			<key name="Tasks" modified="2020-07-03 01:12:07" build="200615">
 				<value name="Count" type="long" data="18"/>
@@ -964,6 +966,7 @@
 			<value name="AutoTrimSingleLine" type="hex" data="00"/>
 			<value name="StatusBar.Hide.InputGrouping" type="hex" data="00"/>
 			<value name="StatusBar.Hide.WMode" type="hex" data="01"/>
+			<value name="ResetTerminalConfirm" type="hex" data="01"/>
 		</key>
 	</key>
 </key>
