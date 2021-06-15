@@ -12,9 +12,7 @@ set PYTHON_DIR=C:\Software\Python\
 set PERL_DIR=C:\Software\StrawberryPerl\
 set JOM_DIR=C:\Software\jom\
 set QT_PATH=C:\Projects\Qt
-rem set GIT_PATH="%PROGRAMFILES%\Git"
-rem set GIT_EXE=%GIT_PATH%\bin\git.exe
-for /f "tokens=1" %%i in ('where git') do set GIT_EXE=%%i
+for /f "tokens=1* delims=,,," %%i in ('where git') do set GIT_EXE=%%i
 
 set QT_SRC=%QT_PATH%\qt5
 set QT_BLD=%QT_PATH%\bld
@@ -25,7 +23,7 @@ set PATH=%QT_BLD%\bin;%QTDIR%\bin;%QT_SRC%\qtrepotools\bin;%QT_SRC%\gnuwin32\bin
 
 set SRC_EXISTED=1
 if NOT EXIST %QT_SRC% (
-  CALL %GIT_EXE% clone git://code.qt.io/qt/qt5.git %QT_SRC%
+  CALL "%GIT_EXE%" clone git://code.qt.io/qt/qt5.git %QT_SRC%
   set SRC_EXISTED=0
 )
 
@@ -47,7 +45,7 @@ mkdir %QT_BLD%
 
 cd /D %QT_SRC%
 if %SRC_EXISTED% GTR 0 (
-  call %GIT_EXE% fetch origin --tags --prune
+  call "%GIT_EXE%" fetch origin --tags --prune
 )
 
 REM Get currently checked out tag
@@ -55,13 +53,13 @@ for /f "tokens=1" %%i in ('git describe') do set TAG=%%i
 set /p TAG="TAG to build [%TAG%] (Enter 't' to list all tags): "
 :while1
   if /I !TAG! EQU t (
-    call %GIT_EXE% tag -l --sort -version:refname
+    call "%GIT_EXE%" tag -l --sort -version:refname
     for /f "tokens=1"  %%i in ('git describe') do set TAG=%%i
     set /p TAG="TAG to build [!TAG!] (Enter 't' to list all tags): "
     goto :while1
   )
 echo "Checking out tag: %TAG%"
-call %GIT_EXE% checkout %TAG%
+call "%GIT_EXE%" checkout %TAG%
 
 set INIT=n
 set FORCE_UPDATE=""
@@ -79,7 +77,7 @@ if /I !INIT! EQU Y (
   cd /D %QT_SRC%
   %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
 ) else (
-  call %GIT_EXE% submodule update
+  call "%GIT_EXE%" submodule update
 )
 
 cd /D %QT_BLD%
