@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2021-06-09 21:26:23" build="210422">
+		<key name=".Vanilla" modified="2021-06-15 14:01:33" build="210422">
 			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
 			<value name="UseInjects" type="hex" data="01"/>
@@ -9,22 +9,22 @@
 			<value name="Update.CheckHourly" type="hex" data="00"/>
 			<value name="Update.ConfirmDownload" type="hex" data="00"/>
 			<value name="Update.UseBuilds" type="hex" data="02"/>
-			<value name="ColorTable00" type="dword" data="001e1d1b"/>
-			<value name="ColorTable01" type="dword" data="00d28b26"/>
-			<value name="ColorTable02" type="dword" data="0014b482"/>
-			<value name="ColorTable03" type="dword" data="00d6c256"/>
-			<value name="ColorTable04" type="dword" data="007226f9"/>
-			<value name="ColorTable05" type="dword" data="00fe548c"/>
-			<value name="ColorTable06" type="dword" data="001b29b4"/>
-			<value name="ColorTable07" type="dword" data="00c0c0c0"/>
-			<value name="ColorTable08" type="dword" data="006f6f6a"/>
-			<value name="ColorTable09" type="dword" data="00e3ad62"/>
-			<value name="ColorTable10" type="dword" data="0046ebb7"/>
-			<value name="ColorTable11" type="dword" data="00e5d894"/>
-			<value name="ColorTable12" type="dword" data="009559ff"/>
-			<value name="ColorTable13" type="dword" data="00fea0bf"/>
-			<value name="ColorTable14" type="dword" data="006cedfe"/>
-			<value name="ColorTable15" type="dword" data="00f2f8f8"/>
+			<value name="ColorTable00" type="dword" data="00222827"/>
+			<value name="ColorTable01" type="dword" data="00ee5401"/>
+			<value name="ColorTable02" type="dword" data="0078c814"/>
+			<value name="ColorTable03" type="dword" data="00a6831a"/>
+			<value name="ColorTable04" type="dword" data="003403ed"/>
+			<value name="ColorTable05" type="dword" data="009c5689"/>
+			<value name="ColorTable06" type="dword" data="0021ffde"/>
+			<value name="ColorTable07" type="dword" data="00cacaca"/>
+			<value name="ColorTable08" type="dword" data="007c7c7c"/>
+			<value name="ColorTable09" type="dword" data="00f0b47b"/>
+			<value name="ColorTable10" type="dword" data="003c8af1"/>
+			<value name="ColorTable11" type="dword" data="00e5c258"/>
+			<value name="ColorTable12" type="dword" data="004b04f3"/>
+			<value name="ColorTable13" type="dword" data="00b87da8"/>
+			<value name="ColorTable14" type="dword" data="0081cccc"/>
+			<value name="ColorTable15" type="dword" data="00ffffff"/>
 			<value name="ColorTable16" type="dword" data="00000000"/>
 			<value name="ColorTable17" type="dword" data="00800000"/>
 			<value name="ColorTable18" type="dword" data="00008000"/>
