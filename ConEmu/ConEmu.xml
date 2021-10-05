@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2021-09-25 21:30:55" build="210912">
+		<key name=".Vanilla" modified="2021-10-05 09:10:09" build="210912">
 			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
 			<value name="UseInjects" type="hex" data="01"/>
@@ -764,8 +764,8 @@
 				<value name="Key.EditMenu2" type="dword" data="00000000"/>
 				<value name="SetFocusParent" type="dword" data="0000a01b"/>
 			</key>
-			<key name="Tasks" modified="2020-07-03 01:12:07" build="200615">
-				<value name="Count" type="long" data="18"/>
+			<key name="Tasks" modified="2021-10-05 09:32:20" build="210912">
+				<value name="Count" type="long" data="19"/>
 				<key name="Task1" modified="2017-09-28 11:10:11" build="170910">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000002"/>
@@ -894,17 +894,17 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task15" modified="2020-07-03 01:12:07" build="200615">
+				<key name="Task15" modified="2021-10-05 09:33:25" build="210912">
 					<value name="Name" type="string" data="{SDK::VS 15.0 x64 tools}"/>
 					<value name="Flags" type="dword" data="00000004"/>
-					<value name="Hotkey" type="dword" data="00105b54"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" amd64 &amp; "%ConEmuBaseDir%\CmdInit.cmd"" -new_console:t:"VS 15.0 2017 x64" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,39"'/>
 				</key>
-				<key name="Task16" modified="2020-07-03 01:12:07" build="200615">
-					<value name="Name" type="string" data="{SDK::VS 16.0 x64 tools}"/>
+				<key name="Task16" modified="2021-10-05 09:33:25" build="210912">
+					<value name="Name" type="string" data="{SDK::VS 16.0 2019 x64 tools}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00105b56"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -929,6 +929,15 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"" x64 -new_console:t:"VS 15.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,38"'/>
+				</key>
+				<key name="Task19" modified="2021-10-05 09:34:42" build="210912">
+					<value name="Name" type="string" data="{SDK::VS 17.0 2022 x64 tools}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00105b54"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Auxiliary\Build\vcvarsall.bat" amd64 &amp; "%ConEmuBaseDir%\CmdInit.cmd"" -new_console:t:"VS 17.0 2022 x64" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,44"'/>
 				</key>
 			</key>
 			<key name="Apps" modified="2017-09-28 11:14:28" build="170910">
