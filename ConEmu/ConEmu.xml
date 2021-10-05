@@ -91,13 +91,14 @@
 			<value name="StoreTaskbarCommands" type="hex" data="00"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{SDK::VS 17.0 2022 x64 tools}"/>
+				<line data="{Shells::cmd (Admin)}"/>
+				<line data="{Shells::cmd}"/>
 				<line data="{Shells::PowerShell (Admin)}"/>
 				<line data="{SDK::VS 16.0 x64 tools}"/>
 				<line data="{Shells::PowerShell}"/>
 				<line data="{Shells::cmd 64/32}"/>
-				<line data="{Shells::cmd (Admin)}"/>
 				<line data="{Bash::Git bash}"/>
-				<line data="{Shells::cmd}"/>
 				<line data="{Shells::WSL Ubuntu}"/>
 				<line data="{Shells::WSL ZSH}"/>
 				<line data="{SDK::VS 16.0 x64 tools prompt}"/>
