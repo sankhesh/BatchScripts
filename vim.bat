@@ -94,6 +94,16 @@ nmake /f Make_mvc.mak^
 
 rem Install the runtime
 set DST=%VIM_INSTALL%\vim%VIM_VER%
+
+set UNINSTALL=n
+if EXIST %DST% (
+  SET /p UNINSTALL="%DST% exists. Uninstall before installing?[y/N]: "
+)
+if %UNINSTALL% EQU y (
+  rem Uninstalling vim
+  call %DST%\uninstall
+  rmdir /Q /S %DST%
+)
 mkdir %DST%
 
 xcopy %VIM_SRC%\runtime %DST% /D /E /H /I /Y %*
