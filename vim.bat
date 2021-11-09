@@ -119,8 +119,8 @@ xcopy %GETTEXT64_DIR%\bin\libiconv-*.dll %DST%\GvimExt64\* /D /Y %*
 rem Finally, install
 call %DST%\install
 
-rem cd /D %VIM_SRC%\src
-rem nmake /f Make_mvc.mak clean
+cd /D %VIM_SRC%\src
+nmake /f Make_mvc.mak clean
 
 cd /D %CURRENT_DIR%
 echo %time%
