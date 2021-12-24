@@ -127,7 +127,11 @@ xcopy %GETTEXT64_DIR%\bin\libintl-*.dll %DST%\GvimExt64\* /D /Y %*
 xcopy %GETTEXT64_DIR%\bin\libiconv-*.dll %DST%\GvimExt64\* /D /Y %*
 
 rem Finally, install
-call %DST%\install
+REM  Use ConEmu's elevation feature to run the install script as an administrator
+REM  If this fails (no ConEmu), comment out the following line and uncomment the line after the
+REM  following one.
+call cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd & %DST%\install.exe" -new_console:a
+REM  call %DST%\install
 
 cd /D %VIM_SRC%\src
 nmake /f Make_mvc.mak clean
