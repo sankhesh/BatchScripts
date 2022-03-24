@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2022-03-08 10:12:20" build="210912">
+		<key name=".Vanilla" modified="2022-03-13 00:23:17" build="220308">
 			<value name="Language" type="string" data="en"/>
 			<value name="StartType" type="hex" data="01"/>
 			<value name="CmdLine" type="string" data=""/>
@@ -123,7 +123,7 @@
 			<value name="Multi.SplitHeight" type="hex" data="04"/>
 			<value name="ResetTerminalConfirm" type="hex" data="01"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
-			<value name="FontName" type="string" data="Cascadia Code"/>
+			<value name="FontName" type="string" data="Cascadia Code SemiBold"/>
 			<value name="FontName2" type="string" data="Cascadia Code"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
 			<value name="FontSize" type="ulong" data="18"/>
