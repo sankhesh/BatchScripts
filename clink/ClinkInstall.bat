@@ -6,7 +6,9 @@ rem ============================================================================
 rem Script variables setup
 rem ===============================================================================
 
-set CLINK_DIR=C:\Software\clink
+rem Figure out the drive to install to
+call SoftwareDrive.bat
+set CLINK_DIR=%DRIVETOUSE%:\Software\clink
 
 rem ===============================================================================
 rem Script start

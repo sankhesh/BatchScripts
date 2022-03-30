@@ -12,15 +12,17 @@ rem ============================================================================
 rem Script variables setup
 rem ===============================================================================
 
-set VIM_PATH=D:\Projects\vim
+rem Figure out the drive to install to
+call SoftwareDrive.bat
+set VIM_PATH=%DRIVETOUSE%:\Projects\vim
 set VIM_SRC=%VIM_PATH%\vim
 set VIM_INSTALL=%VIM_PATH%\install
 set VIM_VER=82
 
-set PYTHON_DIR=D:\Software\Python
+set PYTHON_DIR=%DRIVETOUSE%:\Software\Python
 set PYTHON_VER=310
 
-set PERL_DIR=D:\Software\StrawberryPerl\perl
+set PERL_DIR=%DRIVETOUSE%:\Software\StrawberryPerl\perl
 set PERL_VER=528
 
 rem Get gettext and iconv DLLs from the following site:
