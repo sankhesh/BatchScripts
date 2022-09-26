@@ -77,7 +77,7 @@ if %SRC_EXISTED% GTR 0 (
 
 if /I !INIT! EQU Y (
   cd /D %QT_SRC%
-  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscript,-qtscxml,-qtsensors,-qtserialbus,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtwebchannel,-qtwebengine,-qtx11extras
+  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscxml,-qtsensors,-qtserialbus,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtx11extras
 ) else (
   call "%GIT_EXE%" submodule update
 )
@@ -104,7 +104,6 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qtpim ^
   -skip qtpurchasing ^
   -skip qtqa ^
-  -skip qtscript ^
   -skip qtscxml ^
   -skip qtsensors ^
   -skip qtserialbus ^
@@ -112,9 +111,8 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qttranslations ^
   -skip qtvirtualkeyboard ^
   -skip qtwayland ^
-  -skip qtwebchannel ^
-  -skip qtwebengine ^
-  -skip qtx11extras
+  -skip qtx11extras ^
+  -openssl -I %DRIVETOUSE%:\Software\OpenSSL\Debug\include -L %DRIVETOUSE%:\Software\OpenSSL\Debug\lib
 
 set "tagv=%TAG:v=%"
 set "TAGV=%tagv:.=%"
