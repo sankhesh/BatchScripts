@@ -48,6 +48,7 @@ cd /D %VIM_SRC%
 if %SRC_EXISTED% GTR 0 (
   call "%GIT_EXE%" fetch origin --tags --prune
   call "%GIT_EXE%" pull
+  call "%GIT_EXE%" clean -dfx
 )
 
 cd /D %VIM_SRC%\src
