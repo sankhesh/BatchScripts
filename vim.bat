@@ -17,7 +17,6 @@ call SoftwareDrive.bat
 set VIM_PATH=%DRIVETOUSE%:\Projects\vim
 set VIM_SRC=%VIM_PATH%\vim
 set VIM_INSTALL=%VIM_PATH%\install
-set VIM_VER=82
 
 set PYTHON_DIR=%DRIVETOUSE%:\Software\Python
 set PYTHON_VER=310
@@ -94,6 +93,15 @@ nmake /f Make_mvc.mak^
   DEBUG=no^
   CPUNR=any^
   || exit /b 1
+
+rem Find the vim version
+for /f "delims=" %%a in ('%VIM_SRC%\src\vim.exe --version') do (
+  set VIMVERSION_LINE=%%a
+  goto :OUTFOR
+)
+:OUTFOR
+set VIMVER=!VIMVERSION_LINE:~18,3!
+set VIM_VER=!VIMVER:.=!
 
 rem Install the runtime
 set DST=%VIM_INSTALL%\vim%VIM_VER%
