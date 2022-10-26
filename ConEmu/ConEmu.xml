@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2022-09-16 11:11:14" build="220807">
+		<key name=".Vanilla" modified="2022-10-24 13:31:37" build="220807">
 			<value name="Language" type="string" data="en"/>
 			<value name="StartType" type="hex" data="01"/>
 			<value name="CmdLine" type="string" data=""/>
@@ -83,10 +83,13 @@
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{SDK::VS 15.0 x64 tools (Admin)}"/>
+				<line data="{SDK::VS 15.0 x64 tools}"/>
+				<line data="{SDK::VS 15.0 x64 tools prompt}"/>
+				<line data="{Shells::cmd (Admin)}"/>
 				<line data="{SDK::VS 17.0 2022 x64 tools}"/>
 				<line data="{Shells::cmd 64/32}"/>
 				<line data="{Shells::cmd}"/>
-				<line data="{Shells::cmd (Admin)}"/>
 				<line data="{Shells::WSL Debian}"/>
 				<line data="{Shells::PowerShell (Admin)}"/>
 				<line data="{SDK::VS 16.0 x64 tools}"/>
@@ -156,10 +159,10 @@
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="2230"/>
-			<value name="ConWnd Y" type="long" data="304"/>
+			<value name="ConWnd X" type="long" data="2265"/>
+			<value name="ConWnd Y" type="long" data="589"/>
 			<value name="LastMonitor" type="string" data="0,0,3840,2120"/>
-			<value name="ConWnd Width" type="dword" data="00000099"/>
+			<value name="ConWnd Width" type="dword" data="000000b2"/>
 			<value name="ConWnd Height" type="dword" data="0000003a"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="QuakeStyle" type="hex" data="00"/>
@@ -609,8 +612,8 @@
 				<value name="DndRKey" type="hex" data="A2"/>
 				<value name="WndDragKey" type="dword" data="00121101"/>
 			</key>
-			<key name="Tasks" modified="2022-03-08 10:12:20" build="210912">
-				<value name="Count" type="long" data="19"/>
+			<key name="Tasks" modified="2022-10-21 12:14:13" build="220807">
+				<value name="Count" type="long" data="20"/>
 				<key name="Task1" modified="2022-03-08 10:12:20" build="210912">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000002"/>
@@ -738,16 +741,25 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64 &amp; "%ConEmuBaseDir%\CmdInit.cmd"" -new_console:t:"VS 14.0 2015 x64" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,33"'/>
 				</key>
-				<key name="Task15" modified="2022-03-08 10:12:20" build="210912">
+				<key name="Task15" modified="2022-10-21 11:59:21" build="220807">
 					<value name="Name" type="string" data="{SDK::VS 15.0 x64 tools}"/>
 					<value name="Flags" type="dword" data="00000004"/>
-					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="Hotkey" type="dword" data="00105b4c"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" amd64 &amp; "%ConEmuBaseDir%\CmdInit.cmd"" -new_console:t:"VS 15.0 2017 x64" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,39"'/>
 				</key>
-				<key name="Task16" modified="2022-03-08 10:12:20" build="210912">
+				<key name="Task16" modified="2022-10-21 12:15:27" build="220807">
+					<value name="Name" type="string" data="{SDK::VS 15.0 x64 tools (Admin)}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" amd64 &amp; "%ConEmuBaseDir%\CmdInit.cmd"" -new_console:t:"VS 15.0 2017 x64" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,39" -new_console:a'/>
+				</key>
+				<key name="Task17" modified="2022-10-21 12:14:13" build="220807">
 					<value name="Name" type="string" data="{SDK::VS 16.0 2019 x64 tools}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00105b56"/>
@@ -756,7 +768,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" amd64 &amp; "%ConEmuBaseDir%\CmdInit.cmd"" -new_console:t:"VS 16.0 2019 x64" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,43"'/>
 				</key>
-				<key name="Task17" modified="2022-03-08 10:12:20" build="210912">
+				<key name="Task18" modified="2022-10-21 12:14:13" build="220807">
 					<value name="Name" type="string" data="{SDK::VS 15.0 x86 tools prompt}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -765,7 +777,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"" x86 -new_console:t:"VS 15.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,38"'/>
 				</key>
-				<key name="Task18" modified="2022-03-08 10:12:20" build="210912">
+				<key name="Task19" modified="2022-10-21 12:14:13" build="220807">
 					<value name="Name" type="string" data="{SDK::VS 15.0 x64 tools prompt}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -774,7 +786,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"" x64 -new_console:t:"VS 15.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,38"'/>
 				</key>
-				<key name="Task19" modified="2022-03-08 10:12:20" build="210912">
+				<key name="Task20" modified="2022-10-21 12:14:13" build="220807">
 					<value name="Name" type="string" data="{SDK::VS 17.0 2022 x64 tools}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00105b54"/>
