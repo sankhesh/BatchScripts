@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2022-10-24 13:31:37" build="220807">
+		<key name=".Vanilla" modified="2023-09-18 12:24:23" build="230724">
 			<value name="Language" type="string" data="en"/>
 			<value name="StartType" type="hex" data="01"/>
 			<value name="CmdLine" type="string" data=""/>
@@ -83,18 +83,18 @@
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{SDK::VS 17.0 2022 x64 tools}"/>
+				<line data="{Bash::Git bash}"/>
+				<line data="{Shells::cmd (Admin)}"/>
+				<line data="{Shells::PowerShell (Admin)}"/>
+				<line data="{Shells::PowerShell}"/>
+				<line data="{Shells::WSL Debian}"/>
 				<line data="{SDK::VS 15.0 x64 tools (Admin)}"/>
 				<line data="{SDK::VS 15.0 x64 tools}"/>
 				<line data="{SDK::VS 15.0 x64 tools prompt}"/>
-				<line data="{Shells::cmd (Admin)}"/>
-				<line data="{SDK::VS 17.0 2022 x64 tools}"/>
 				<line data="{Shells::cmd 64/32}"/>
 				<line data="{Shells::cmd}"/>
-				<line data="{Shells::WSL Debian}"/>
-				<line data="{Shells::PowerShell (Admin)}"/>
 				<line data="{SDK::VS 16.0 x64 tools}"/>
-				<line data="{Shells::PowerShell}"/>
-				<line data="{Bash::Git bash}"/>
 				<line data="{Shells::WSL Ubuntu}"/>
 				<line data="{Shells::WSL ZSH}"/>
 				<line data="{SDK::VS 16.0 x64 tools prompt}"/>
@@ -159,11 +159,11 @@
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="2265"/>
-			<value name="ConWnd Y" type="long" data="589"/>
+			<value name="ConWnd X" type="long" data="1334"/>
+			<value name="ConWnd Y" type="long" data="470"/>
 			<value name="LastMonitor" type="string" data="0,0,3840,2120"/>
-			<value name="ConWnd Width" type="dword" data="000000b2"/>
-			<value name="ConWnd Height" type="dword" data="0000003a"/>
+			<value name="ConWnd Width" type="dword" data="000000b0"/>
+			<value name="ConWnd Height" type="dword" data="00000035"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="QuakeStyle" type="hex" data="00"/>
 			<value name="Restore2ActiveMon" type="hex" data="00"/>
@@ -612,8 +612,8 @@
 				<value name="DndRKey" type="hex" data="A2"/>
 				<value name="WndDragKey" type="dword" data="00121101"/>
 			</key>
-			<key name="Tasks" modified="2022-10-21 12:14:13" build="220807">
-				<value name="Count" type="long" data="20"/>
+			<key name="Tasks" modified="2023-01-25 14:05:05" build="221218">
+				<value name="Count" type="long" data="21"/>
 				<key name="Task1" modified="2022-03-08 10:12:20" build="210912">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000002"/>
@@ -794,6 +794,15 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Auxiliary\Build\vcvarsall.bat" amd64 &amp; "%ConEmuBaseDir%\CmdInit.cmd"" -new_console:t:"VS 17.0 2022 x64" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,44"'/>
+				</key>
+				<key name="Task21" modified="2023-01-25 14:05:05" build="221218">
+					<value name="Name" type="string" data="{SDK::VS 17.0 2022 x64 tools (Admin)}"/>
+					<value name="Flags" type="dword" data="00000004"/>
+					<value name="Hotkey" type="dword" data="10125b54"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data='cmd /k ""C:\Program Files\Microsoft Visual Studio\2022\Preview\VC\Auxiliary\Build\vcvarsall.bat" amd64 &amp; "%ConEmuBaseDir%\CmdInit.cmd"" -new_console:t:"VS 17.0 2022 x64" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,44" -new_console:a'/>
 				</key>
 			</key>
 			<key name="Apps" modified="2022-03-08 10:12:20" build="210912">
