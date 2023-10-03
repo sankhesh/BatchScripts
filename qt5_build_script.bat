@@ -14,6 +14,7 @@ set PYTHON_DIR=%DRIVETOUSE%:\Software\Python\
 set PERL_DIR=%DRIVETOUSE%:\Software\StrawberryPerl\
 set JOM_DIR=%DRIVETOUSE%:\Software\jom\
 set QT_PATH=%DRIVETOUSE%:\Projects\Qt
+set OpenSSL_PATH=%DRIVETOUSE%:\Projects\openssl\install
 for /f "tokens=1* delims=,,," %%i in ('where git') do set GIT_EXE=%%i
 
 set QT_SRC=%QT_PATH%\qt5
@@ -112,7 +113,7 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qtvirtualkeyboard ^
   -skip qtwayland ^
   -skip qtx11extras ^
-  -openssl -I %DRIVETOUSE%:\Software\OpenSSL\Debug\include -L %DRIVETOUSE%:\Software\OpenSSL\Debug\lib
+  -openssl -I %OpenSSL_PATH%\include -L %OpenSSL_PATH%\lib
 
 set "tagv=%TAG:v=%"
 set "TAGV=%tagv:.=%"
