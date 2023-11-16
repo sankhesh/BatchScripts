@@ -19,7 +19,7 @@ set VIM_SRC=%VIM_PATH%\vim
 set VIM_INSTALL=%VIM_PATH%\install
 
 set PYTHON_DIR=%DRIVETOUSE%:\Software\Python
-set PYTHON_VER=310
+set PYTHON_VER=312
 
 set PERL_DIR=%DRIVETOUSE%:\Software\StrawberryPerl\perl
 set PERL_VER=528
