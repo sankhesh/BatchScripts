@@ -19,7 +19,7 @@ IF([string]::IsNullOrWhiteSpace($ZUrl)) {
   Expand-Archive -Path $DownloadZipFile -DestinationPath $DownloadTmpDir -Force
   # The archive when expanded results in a folder containing the required files
   # Drop down into the subfolder and then move the relevant files to dst
-  Get-ChildItem -Path $DownloadTmpDir | Get-ChildItem -Recurse | Move-Item -Destination $dst 
+  Get-ChildItem -Path $DownloadTmpDir | Get-ChildItem -Recurse | Move-Item -Destination $dst -Force 
 } ELSE {
   $DownloadZipFile = $DownloadDir + $(Split-Path -Path $ZUrl -Leaf)
   Invoke-WebRequest -Uri $ZUrl -OutFile $DownloadZipFile

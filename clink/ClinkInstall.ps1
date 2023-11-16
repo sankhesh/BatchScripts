@@ -6,7 +6,7 @@ param(
      )
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
-Invoke-expression "$ScriptDir\DownloadRelease.ps1 -dst $dst -url `"https://api.github.com/repos/chrisant996/clink/releases/latest`""
+Invoke-expression "$ScriptDir\..\ps_scripts\DownloadRelease.ps1 -dst $dst -url `"https://api.github.com/repos/chrisant996/clink/releases/latest`""
 
 # Post-install
 # Rename the default-settings, default-inputrc files to ensure clink uses enhanced settings
