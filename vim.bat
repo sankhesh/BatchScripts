@@ -138,10 +138,10 @@ xcopy %GETTEXT64_DIR%\bin\libintl-*.dll %DST%\GvimExt64\* /D /Y %*
 xcopy %GETTEXT64_DIR%\bin\libiconv-*.dll %DST%\GvimExt64\* /D /Y %*
 
 rem Finally, install
-REM  Use ConEmu's elevation feature to run the install script as an administrator
-REM  If this fails (no ConEmu), comment out the following line and uncomment the line after the
-REM  following one.
-call cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd & %DST%\install.exe" -new_console:a
+REM  Use Windows Terminal's elevation feature to run the install script as an administrator If this
+REM  fails (no Windows Terminal or Admin Profile), comment out the following line and uncomment the
+REM  next line to run in an elevated cmd prompt manually.
+call %DRIVETOUSE%:\Software\WindowsTerminal\wt.exe -f -p "Command Prompt (Admin)" %DST%\install.exe
 REM  call %DST%\install
 
 cd /D %VIM_SRC%\src
