@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2023-09-18 12:24:23" build="230724">
+		<key name=".Vanilla" modified="2023-11-10 17:04:18" build="230724">
 			<value name="Language" type="string" data="en"/>
 			<value name="StartType" type="hex" data="01"/>
 			<value name="CmdLine" type="string" data=""/>
@@ -83,10 +83,11 @@
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{Shells::PowerShell (Admin)}"/>
+				<line data="{SDK::VS 17.0 2022 x64 tools (Admin)}"/>
 				<line data="{SDK::VS 17.0 2022 x64 tools}"/>
 				<line data="{Bash::Git bash}"/>
 				<line data="{Shells::cmd (Admin)}"/>
-				<line data="{Shells::PowerShell (Admin)}"/>
 				<line data="{Shells::PowerShell}"/>
 				<line data="{Shells::WSL Debian}"/>
 				<line data="{SDK::VS 15.0 x64 tools (Admin)}"/>
@@ -159,11 +160,11 @@
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="1334"/>
-			<value name="ConWnd Y" type="long" data="470"/>
+			<value name="ConWnd X" type="long" data="449"/>
+			<value name="ConWnd Y" type="long" data="476"/>
 			<value name="LastMonitor" type="string" data="0,0,3840,2120"/>
-			<value name="ConWnd Width" type="dword" data="000000b0"/>
-			<value name="ConWnd Height" type="dword" data="00000035"/>
+			<value name="ConWnd Width" type="dword" data="000000eb"/>
+			<value name="ConWnd Height" type="dword" data="00000043"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="QuakeStyle" type="hex" data="00"/>
 			<value name="Restore2ActiveMon" type="hex" data="00"/>
