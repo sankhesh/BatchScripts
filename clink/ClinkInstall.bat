@@ -36,7 +36,7 @@ call %CLINK_DIR%\clink_x64.exe set fzf.exe_location %USERPROFILE%\.fzf\bin\fzf.e
 rem -------------------------------------------------------------------------------
 rem clink-completions
 rem -------------------------------------------------------------------------------
-powershell -NoProfile -ExecutionPolicy RemoteSigned -File %0\..\..\ps_scripts\DownloadRelease.ps1 -dst %CLINK_SCRIPTS_DIR% -url "https://api.github.com/repos/vladimir-kotikov/clink-completions/releases/latest"
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File %0\..\..\ps_scripts\DownloadRelease.ps1 -dst %CLINK_SCRIPTS_DIR% -url "https://api.github.com/repos/vladimir-kotikov/clink-completions/releases/latest" -excludes "symbols"
 
 rem Finally set the scripts path in the clink settings
 call %CLINK_DIR%\clink_x64.exe set clink.path %CLINK_SCRIPTS_DIR%
