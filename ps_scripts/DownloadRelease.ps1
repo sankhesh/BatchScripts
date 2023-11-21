@@ -27,7 +27,9 @@ IF([string]::IsNullOrWhiteSpace($ZUrl)) {
   Get-ChildItem -Path $DownloadTmpDir | Get-ChildItem -Recurse | Move-Item -Destination $dst -Force 
 } ELSE {
   $DownloadZipFile = $DownloadDir + $(Split-Path -Path $ZUrl -Leaf)
-  Invoke-WebRequest -Uri $ZUrl -OutFile $DownloadZipFile
+  IF(!(Test-Path -Path $DownloadZipFile)) {
+    Invoke-WebRequest -Uri $ZUrl -OutFile $DownloadZipFile
+  }
   Expand-Archive -Path $DownloadZipFile -DestinationPath $DownloadTmpDir -Force
   # Test if we have a top-level directory
   $Cnt = (Get-ChildItem -Path $DownloadTmpDir).Count
