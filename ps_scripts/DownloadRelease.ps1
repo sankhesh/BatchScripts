@@ -20,7 +20,6 @@ IF([string]::IsNullOrWhiteSpace($ZUrl)) {
   $ZUrl = Invoke-RestMethod -uri $url | select -ExpandProperty zipball_url
   $DownloadZipFile = $DownloadDir + "tmp.zip"
   Invoke-WebRequest -Uri $ZUrl -OutFile $DownloadZipFile
-  $DownloadTmpDir = $DownloadDir + "\tmp"
   Expand-Archive -Path $DownloadZipFile -DestinationPath $DownloadTmpDir -Force
   # The archive when expanded results in a folder containing the required files
   # Drop down into the subfolder and then move the relevant files to dst
@@ -36,7 +35,7 @@ IF([string]::IsNullOrWhiteSpace($ZUrl)) {
   IF ($Cnt -eq 1) {
     Get-ChildItem -Path $DownloadTmpDir | Get-ChildItem -Recurse | Move-Item -Destination $dst -Force
   } ELSE {
-    Move-Item -Path $DownloadTmpDir -Destination $dst -Force
+    Get-ChildItem -Path $DownloadTmpDir | Move-Item -Destination $dst -Force
   }
 }
 Remove-Item -Path $DownloadTmpDir -Recurse -Force
