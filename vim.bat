@@ -141,7 +141,7 @@ rem Finally, install
 REM  Use Windows Terminal's elevation feature to run the install script as an administrator If this
 REM  fails (no Windows Terminal or Admin Profile), comment out the following line and uncomment the
 REM  next line to run in an elevated cmd prompt manually.
-call %DRIVETOUSE%:\Software\WindowsTerminal\wt.exe -f -p "Command Prompt (Admin)" %DST%\install.exe
+call wt.exe -f -p "Command Prompt (Admin)" %DST%\install.exe
 REM  call %DST%\install
 
 cd /D %VIM_SRC%\src
