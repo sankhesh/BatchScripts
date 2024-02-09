@@ -16,27 +16,19 @@
             "keys": "f11"
         },
         {
-            "command":
-            {
-                "action": "newTab"
-            },
-            "keys": "ctrl+shift+t"
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 2
-            },
-            "keys": "ctrl+shift+x"
-        },
-        {
             "command": "openNewTabDropdown",
             "keys": "ctrl+shift+space"
         },
         {
             "command": "resetFontSize",
             "keys": "ctrl+0"
+        },
+        {
+            "command":
+            {
+                "action": "newTab"
+            },
+            "keys": "ctrl+shift+t"
         },
         {
             "command":
@@ -48,22 +40,9 @@
         {
             "command":
             {
-                "action": "switchToTab",
-                "index": 6
+                "action": "switchToTab"
             },
             "keys": "ctrl+alt+7"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 4
-            },
-            "keys": "ctrl+shift+e"
         },
         {
             "command":
@@ -77,9 +56,21 @@
             "command":
             {
                 "action": "newTab",
-                "index": 0
+                "index": 4
             },
-            "keys": "ctrl+shift+b"
+            "keys": "ctrl+shift+e"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command":
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "alt+left"
         },
         {
             "command":
@@ -92,10 +83,10 @@
         {
             "command":
             {
-                "action": "moveFocus",
-                "direction": "left"
+                "action": "newTab",
+                "index": 0
             },
-            "keys": "alt+left"
+            "keys": "ctrl+shift+b"
         },
         {
             "command":
@@ -109,7 +100,23 @@
             "command":
             {
                 "action": "newTab",
+                "index": 2
+            },
+            "keys": "ctrl+shift+p"
+        },
+        {
+            "command":
+            {
+                "action": "newTab",
                 "index": 3
+            },
+            "keys": "ctrl+shift+x"
+        },
+        {
+            "command":
+            {
+                "action": "newTab",
+                "index": 4
             },
             "keys": "ctrl+alt+shift+x"
         },
@@ -124,22 +131,10 @@
         {
             "command":
             {
-                "action": "splitPane",
-                "split": "right"
-            },
-            "keys": "alt+shift+plus"
-        },
-        {
-            "command":
-            {
                 "action": "newTab",
                 "index": 6
             },
             "keys": "ctrl+shift+6"
-        },
-        {
-            "command": "scrollDownPage",
-            "keys": "ctrl+shift+pgdn"
         },
         {
             "command":
@@ -158,8 +153,16 @@
             "keys": "ctrl+shift+8"
         },
         {
-            "command": "duplicateTab",
-            "keys": "ctrl+shift+d"
+            "command": "scrollDownPage",
+            "keys": "ctrl+shift+pgdn"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "alt+shift+plus"
         },
         {
             "command":
@@ -168,6 +171,10 @@
                 "direction": "up"
             },
             "keys": "alt+up"
+        },
+        {
+            "command": "duplicateTab",
+            "keys": "ctrl+shift+d"
         },
         {
             "command":
@@ -179,17 +186,17 @@
         {
             "command":
             {
-                "action": "prevTab"
-            },
-            "keys": "ctrl+shift+tab"
-        },
-        {
-            "command":
-            {
                 "action": "switchToTab",
                 "index": 2
             },
             "keys": "ctrl+alt+3"
+        },
+        {
+            "command":
+            {
+                "action": "prevTab"
+            },
+            "keys": "ctrl+shift+tab"
         },
         {
             "command":
@@ -244,16 +251,16 @@
             "keys": "ctrl+shift+w"
         },
         {
+            "command": "unbound",
+            "keys": "ctrl+minus"
+        },
+        {
             "command":
             {
                 "action": "splitPane",
                 "split": "down"
             },
             "keys": "alt+shift+minus"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+minus"
         },
         {
             "command":
@@ -334,18 +341,18 @@
         {
             "command":
             {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+down"
-        },
-        {
-            "command":
-            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command":
+            {
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+down"
         },
         {
             "command":
@@ -422,14 +429,35 @@
                 {
                     "light": "Campbell"
                 },
-                "commandline": "cmd.exe /k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Auxiliary\\Build\\vcvarsall.bat\" amd64",
+                "commandline": "cmd.exe /k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat\" amd64",
                 "experimental.retroTerminalEffect": false,
                 "guid": "{627f6244-0195-4f8f-ab48-4ed9e0128f76}",
                 "hidden": false,
-                "icon": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\Common7\\IDE\\Assets\\VisualStudio.70x70.contrast-standard_scale-180.png",
-                "name": "VS 17 2022 x64",
+                "icon": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Assets\\VisualStudio.70x70.contrast-standard_scale-180.png",
+                "name": "VS 17 2022 Community x64",
                 "startingDirectory": null,
-                "tabTitle": "Visual Studio 17.0 x64",
+                "tabTitle": "Visual Studio Comm 17.0 x64",
+                "useAcrylic": true
+            },
+            {
+                "adjustIndistinguishableColors": "always",
+                "bellStyle":
+                [
+                    "window",
+                    "taskbar"
+                ],
+                "colorScheme":
+                {
+                    "light": "Campbell"
+                },
+                "commandline": "cmd.exe /k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Auxiliary\\Build\\vcvarsall.bat\" amd64",
+                "experimental.retroTerminalEffect": false,
+                "guid": "{0AC39B1B-4AFC-4684-B22C-625848E16C92}",
+                "hidden": false,
+                "icon": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\IDE\\Assets\\VisualStudio.70x70.contrast-standard_scale-180.png",
+                "name": "VS 17 2022 Pro x64",
+                "startingDirectory": null,
+                "tabTitle": "Visual Studio Pro 17.0 x64",
                 "useAcrylic": true
             },
             {
@@ -451,28 +479,8 @@
                 "name": "Windows PowerShell"
             },
             {
-                "bellStyle":
-                [
-                    "window",
-                    "taskbar"
-                ],
-                "colorScheme": "Tango Dark",
-                "commandline": "cmd.exe /k \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat\" amd64",
-                "experimental.retroTerminalEffect": false,
-                "font":
-                {
-                    "face": "Cascadia Code"
-                },
-                "guid": "{28a44971-4e48-58d6-8b75-90a95629c64d}",
-                "icon": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\Assets\\VisualStudio.70x70.contrast-standard_scale-100.png",
-                "name": "VS 16 2019 x64",
-                "startingDirectory": null,
-                "tabTitle": "Visual Studio 16.0 x64",
-                "useAcrylic": true
-            },
-            {
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Debian",
                 "source": "Windows.Terminal.Wsl"
             },
@@ -483,22 +491,22 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{361c1746-2bc1-560b-8dc4-64338233358f}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{19a3292a-b434-5d11-b24c-6c9f7539d5b1}",
-                "hidden": true,
-                "name": "Developer PowerShell for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
                 "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
                 "hidden": true,
                 "name": "Visual Studio Debug Console",
                 "source": "VSDebugConsole"
+            },
+            {
+                "guid": "{d7219b03-bc5b-5563-a928-35d5aa5db210}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{08350ae0-ff5e-5f9d-a7bb-d25355469282}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
