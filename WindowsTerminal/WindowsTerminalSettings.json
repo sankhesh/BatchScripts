@@ -436,7 +436,7 @@
                 "icon": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Assets\\VisualStudio.70x70.contrast-standard_scale-180.png",
                 "name": "VS 17 2022 Community x64",
                 "startingDirectory": null,
-                "tabTitle": "Visual Studio Comm 17.0 x64",
+                "tabTitle": "VSCommunity 2022",
                 "useAcrylic": true
             },
             {
@@ -457,7 +457,7 @@
                 "icon": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\IDE\\Assets\\VisualStudio.70x70.contrast-standard_scale-180.png",
                 "name": "VS 17 2022 Pro x64",
                 "startingDirectory": null,
-                "tabTitle": "Visual Studio Pro 17.0 x64",
+                "tabTitle": "VSPro 2022",
                 "useAcrylic": true
             },
             {
