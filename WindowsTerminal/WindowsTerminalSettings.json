@@ -1,7 +1,7 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
+    "actions": 
     [
         {
             "command": "closeWindow",
@@ -16,6 +16,21 @@
             "keys": "f11"
         },
         {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 2
+            },
+            "keys": "ctrl+shift+p"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "keys": "ctrl+shift+t"
+        },
+        {
             "command": "openNewTabDropdown",
             "keys": "ctrl+shift+space"
         },
@@ -24,36 +39,32 @@
             "keys": "ctrl+0"
         },
         {
-            "command":
-            {
-                "action": "newTab"
-            },
-            "keys": "ctrl+shift+t"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "openSettings"
             },
             "keys": "ctrl+comma"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "switchToTab"
             },
             "keys": "ctrl+alt+7"
         },
         {
-            "command":
+            "command": 
             {
-                "action": "resizePane",
-                "direction": "left"
+                "action": "switchToTab"
             },
-            "keys": "alt+shift+left"
+            "keys": "ctrl+alt+1"
         },
         {
-            "command":
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
             {
                 "action": "newTab",
                 "index": 4
@@ -61,59 +72,7 @@
             "keys": "ctrl+shift+e"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "alt+left"
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 8
-            },
-            "keys": "ctrl+alt+9"
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 0
-            },
-            "keys": "ctrl+shift+b"
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 1
-            },
-            "keys": "ctrl+shift+s"
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 2
-            },
-            "keys": "ctrl+shift+p"
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 3
-            },
-            "keys": "ctrl+shift+x"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "newTab",
                 "index": 4
@@ -121,43 +80,55 @@
             "keys": "ctrl+alt+shift+x"
         },
         {
-            "command":
+            "command": 
             {
-                "action": "newTab",
-                "index": 5
+                "action": "resizePane",
+                "direction": "left"
             },
-            "keys": "ctrl+shift+r"
+            "keys": "alt+shift+left"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "newTab",
-                "index": 6
+                "index": 0
             },
-            "keys": "ctrl+shift+6"
+            "keys": "ctrl+shift+b"
         },
         {
-            "command":
+            "command": 
             {
-                "action": "newTab",
-                "index": 7
-            },
-            "keys": "ctrl+shift+7"
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
+                "action": "switchToTab",
                 "index": 8
             },
-            "keys": "ctrl+shift+8"
+            "keys": "ctrl+alt+9"
         },
         {
-            "command": "scrollDownPage",
-            "keys": "ctrl+shift+pgdn"
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "alt+left"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "newTab",
+                "index": 1
+            },
+            "keys": "ctrl+shift+s"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 3
+            },
+            "keys": "ctrl+shift+x"
+        },
+        {
+            "command": 
             {
                 "action": "splitPane",
                 "split": "right"
@@ -165,7 +136,47 @@
             "keys": "alt+shift+plus"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "newTab",
+                "index": 5
+            },
+            "keys": "ctrl+shift+r"
+        },
+        {
+            "command": "scrollDownPage",
+            "keys": "ctrl+shift+pgdn"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 6
+            },
+            "keys": "ctrl+shift+6"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 7
+            },
+            "keys": "ctrl+shift+7"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab",
+                "index": 8
+            },
+            "keys": "ctrl+shift+8"
+        },
+        {
+            "command": "duplicateTab",
+            "keys": "ctrl+shift+d"
+        },
+        {
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "up"
@@ -173,18 +184,21 @@
             "keys": "alt+up"
         },
         {
-            "command": "duplicateTab",
-            "keys": "ctrl+shift+d"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "nextTab"
             },
             "keys": "ctrl+tab"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "prevTab"
+            },
+            "keys": "ctrl+shift+tab"
+        },
+        {
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 2
@@ -192,22 +206,7 @@
             "keys": "ctrl+alt+3"
         },
         {
-            "command":
-            {
-                "action": "prevTab"
-            },
-            "keys": "ctrl+shift+tab"
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 0
-            },
-            "keys": "ctrl+alt+1"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 1
@@ -215,7 +214,7 @@
             "keys": "ctrl+alt+2"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 3
@@ -223,7 +222,7 @@
             "keys": "ctrl+alt+4"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 4
@@ -231,7 +230,7 @@
             "keys": "ctrl+alt+5"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 5
@@ -239,7 +238,7 @@
             "keys": "ctrl+alt+6"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "switchToTab",
                 "index": 7
@@ -251,11 +250,7 @@
             "keys": "ctrl+shift+w"
         },
         {
-            "command": "unbound",
-            "keys": "ctrl+minus"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "down"
@@ -263,7 +258,11 @@
             "keys": "alt+shift+minus"
         },
         {
-            "command":
+            "command": "unbound",
+            "keys": "ctrl+minus"
+        },
+        {
+            "command": 
             {
                 "action": "resizePane",
                 "direction": "down"
@@ -271,7 +270,7 @@
             "keys": "alt+shift+down"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "resizePane",
                 "direction": "right"
@@ -279,7 +278,7 @@
             "keys": "alt+shift+right"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "resizePane",
                 "direction": "up"
@@ -287,7 +286,7 @@
             "keys": "alt+shift+up"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "down"
@@ -295,7 +294,7 @@
             "keys": "alt+down"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "right"
@@ -303,7 +302,7 @@
             "keys": "alt+right"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "copy",
                 "singleLine": false
@@ -311,7 +310,7 @@
             "keys": "ctrl+shift+c"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "copy",
                 "singleLine": false
@@ -319,7 +318,7 @@
             "keys": "ctrl+insert"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "copy",
                 "singleLine": false
@@ -339,7 +338,14 @@
             "keys": "ctrl+v"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "command": 
             {
                 "action": "splitPane",
                 "split": "auto",
@@ -348,14 +354,7 @@
             "keys": "alt+shift+d"
         },
         {
-            "command":
-            {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+down"
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "scrollUp"
             },
@@ -366,7 +365,7 @@
             "keys": "ctrl+shift+pgup"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "adjustFontSize",
                 "delta": 1.0
@@ -378,20 +377,20 @@
     "copyOnSelect": false,
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
     "firstWindowPreference": "defaultProfile",
-    "newTabMenu":
+    "newTabMenu": 
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "adjustIndistinguishableColors": "always",
             "antialiasingMode": "cleartype",
             "colorScheme": "One Half Dark",
-            "font":
+            "font": 
             {
                 "cellHeight": "1.1",
                 "face": "Cascadia Code",
@@ -403,10 +402,10 @@
             "useAcrylic": true,
             "useAtlasEngine": true
         },
-        "list":
+        "list": 
         [
             {
-                "bellStyle":
+                "bellStyle": 
                 [
                     "window",
                     "taskbar"
@@ -420,12 +419,12 @@
             },
             {
                 "adjustIndistinguishableColors": "always",
-                "bellStyle":
+                "bellStyle": 
                 [
                     "window",
                     "taskbar"
                 ],
-                "colorScheme":
+                "colorScheme": 
                 {
                     "light": "Campbell"
                 },
@@ -441,18 +440,18 @@
             },
             {
                 "adjustIndistinguishableColors": "always",
-                "bellStyle":
+                "bellStyle": 
                 [
                     "window",
                     "taskbar"
                 ],
-                "colorScheme":
+                "colorScheme": 
                 {
                     "light": "Campbell"
                 },
                 "commandline": "cmd.exe /k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Auxiliary\\Build\\vcvarsall.bat\" amd64",
                 "experimental.retroTerminalEffect": false,
-                "guid": "{0AC39B1B-4AFC-4684-B22C-625848E16C92}",
+                "guid": "{0ac39b1b-4afc-4684-b22c-625848e16c92}",
                 "hidden": false,
                 "icon": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\IDE\\Assets\\VisualStudio.70x70.contrast-standard_scale-180.png",
                 "name": "VS 17 2022 Pro x64",
@@ -497,20 +496,20 @@
                 "source": "VSDebugConsole"
             },
             {
-                "guid": "{d7219b03-bc5b-5563-a928-35d5aa5db210}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2022",
+                "guid": "{bf6ae3c0-3d44-5ad9-8e4e-672685b8aca8}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022 [Preview]",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{08350ae0-ff5e-5f9d-a7bb-d25355469282}",
-                "hidden": true,
-                "name": "Developer PowerShell for VS 2022",
+                "guid": "{3cf6f466-62af-5042-a21f-c691b179ab1d}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022 [Preview]",
                 "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#0C0C0C",
