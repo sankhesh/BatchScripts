@@ -83,9 +83,24 @@ if /I !INIT! EQU Y (
   call "%GIT_EXE%" submodule update
 )
 
+set "tagv=%TAG:v=%"
+set "TAGV=%tagv:.=%"
+
+set QT_CONF_EXTRA_OPTS=""
+set QT_CONF_CMAKE_OPTS=""
+if %TAGV:~0,3% LSS 600 (
+  set QT_CONF_EXTRA_OPTS=-mp
+  set QT_CONF_CMAKE_OPTS=-I %OpenSSL_PATH%\include -L %OpenSSL_PATH%\lib
+) else (
+  set QT_CONF_EXTRA_OPTS=-openssl-linked
+  set "OpenSSL_ROOT_DIR=%OpenSSL_PATH:\=/%"
+  set QT_CONF_CMAKE_OPTS=-- -DOPENSSL_ROOT_DIR=!OpenSSL_ROOT_DIR!
+)
+
 cd /D %QT_BLD%
 call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
-  -mp -no-icu -opengl desktop^
+  -no-icu -opengl desktop ^
+  %QT_CONF_EXTRA_OPTS% ^
   -nomake tests -nomake examples ^
   -prefix %QT_INSTALL% ^
   -skip qt3d ^
@@ -113,10 +128,8 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qtvirtualkeyboard ^
   -skip qtwayland ^
   -skip qtx11extras ^
-  -openssl -I %OpenSSL_PATH%\include -L %OpenSSL_PATH%\lib
-
-set "tagv=%TAG:v=%"
-set "TAGV=%tagv:.=%"
+  -openssl-linked ^
+  %QT_CONF_CMAKE_OPTS%
 
 if %TAGV:~0,3% LSS 600 (
   set BLDCMD=%JOM_DIR%\jom.exe
