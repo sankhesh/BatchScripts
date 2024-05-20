@@ -64,12 +64,12 @@ ChangeVolume(Prefix, Value)
   if (mute)
   {
     SoundSetMute(False)
-    ShowVolume(0)
+    ShowVolume(SoundGetVolume())
   }
   else
   {
     SoundSetMute(True)
-    ShowVolume(SoundGetVolume())
+    ShowVolume(0)
   }
 }
 
