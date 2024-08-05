@@ -19,9 +19,9 @@
             "command": 
             {
                 "action": "newTab",
-                "index": 2
+                "index": 1
             },
-            "keys": "ctrl+shift+p"
+            "keys": "ctrl+shift+s"
         },
         {
             "command": 
@@ -67,7 +67,7 @@
             "command": 
             {
                 "action": "newTab",
-                "index": 4
+                "index": 3
             },
             "keys": "ctrl+shift+e"
         },
@@ -75,7 +75,7 @@
             "command": 
             {
                 "action": "newTab",
-                "index": 4
+                "index": 3
             },
             "keys": "ctrl+alt+shift+x"
         },
@@ -99,7 +99,7 @@
             "command": 
             {
                 "action": "switchToTab",
-                "index": 8
+                "index": 9
             },
             "keys": "ctrl+alt+9"
         },
@@ -115,15 +115,7 @@
             "command": 
             {
                 "action": "newTab",
-                "index": 1
-            },
-            "keys": "ctrl+shift+s"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab",
-                "index": 3
+                "index": 2
             },
             "keys": "ctrl+shift+x"
         },
@@ -139,7 +131,7 @@
             "command": 
             {
                 "action": "newTab",
-                "index": 5
+                "index": 4
             },
             "keys": "ctrl+shift+r"
         },
@@ -326,7 +318,7 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "paste",
+            "command": "unbound",
             "keys": "ctrl+shift+v"
         },
         {
@@ -334,7 +326,7 @@
             "keys": "shift+insert"
         },
         {
-            "command": "paste",
+            "command": "unbound",
             "keys": "ctrl+v"
         },
         {
@@ -415,27 +407,6 @@
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "~",
-                "useAcrylic": true
-            },
-            {
-                "adjustIndistinguishableColors": "always",
-                "bellStyle": 
-                [
-                    "window",
-                    "taskbar"
-                ],
-                "colorScheme": 
-                {
-                    "light": "Campbell"
-                },
-                "commandline": "cmd.exe /k \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat\" amd64",
-                "experimental.retroTerminalEffect": false,
-                "guid": "{627f6244-0195-4f8f-ab48-4ed9e0128f76}",
-                "hidden": false,
-                "icon": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Assets\\VisualStudio.70x70.contrast-standard_scale-180.png",
-                "name": "VS 17 2022 Community x64",
-                "startingDirectory": null,
-                "tabTitle": "VSCommunity 2022",
                 "useAcrylic": true
             },
             {
