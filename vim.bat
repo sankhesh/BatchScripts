@@ -71,7 +71,7 @@ nmake /f Make_mvc.mak^
   MBYTE=yes^
   ICONV=yes^
   DEBUG=no^
-  CPUNR=any^
+  CPUNR=sse2^
   || exit /b 1
 
 rem Build CUI version
@@ -91,7 +91,7 @@ nmake /f Make_mvc.mak^
   MBYTE=yes^
   ICONV=yes^
   DEBUG=no^
-  CPUNR=any^
+  CPUNR=sse2^
   || exit /b 1
 
 rem Find the vim version
