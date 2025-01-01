@@ -64,6 +64,8 @@ set /p TAG="TAG to build [%TAG%] (Enter 't' to list all tags): "
 echo "Checking out tag: %TAG%"
 call "%GIT_EXE%" checkout %TAG%
 
+set "TAGMAJOR=!TAG:~1,1!
+
 set INIT=n
 set FORCE_UPDATE=""
 if %SRC_EXISTED% GTR 0 (
@@ -78,7 +80,11 @@ if %SRC_EXISTED% GTR 0 (
 
 if /I !INIT! EQU Y (
   cd /D %QT_SRC%
-  %PERL_DIR%\perl\bin\perl.exe init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtgraphicaleffects,-qtlocation,-qtmacextras,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscxml,-qtsensors,-qtserialbus,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtx11extras
+  set PRL_EXE=%PERL_DIR%\perl\bin\perl.exe
+  if !TAGMAJOR! GTR 5 (
+    set PRL_EXE=""
+  )
+  call %PRL_EXE% init-repository %FORCE_UPDATE:"=% --module-subset=default,-qt3d,-qtactiveqt,-qtandroidextras,-qtcanvas3d,-qtcharts,-qtconnectivity,-qtdatavis3d,-qtdoc,-qtdocgallery,-qtfeedback,-qtgamepad,-qtlocation,-qtmacextras,-qtnetworkauth,-qtpim,-qtpurchasing,-qtqa,-qtscxml,-qtsensors,-qtserialbus,-qtspeech,-qttranslations,-qtvirtualkeyboard,-qtwayland,-qtx11extras
 ) else (
   call "%GIT_EXE%" submodule update
 )
@@ -114,7 +120,6 @@ call %QT_SRC%\configure -opensource -confirm-license -debug-and-release ^
   -skip qtdocgallery ^
   -skip qtfeedback ^
   -skip qtgamepad ^
-  -skip qtgraphicaleffects ^
   -skip qtlocation ^
   -skip qtmacextras ^
   -skip qtpim ^
