@@ -14,6 +14,9 @@ rem ============================================================================
 rem Script start
 rem ===============================================================================
 
+if NOT EXIST %CLINK_DIR% (
+  mkdir %CLINK_DIR%
+)
 powershell -NoProfile -ExecutionPolicy RemoteSigned -File %0\..\ClinkInstall.ps1 -dst %CLINK_DIR%
 
 rem ===============================================================================
