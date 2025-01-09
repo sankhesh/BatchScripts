@@ -58,6 +58,11 @@ ChangeVolume(Prefix, Value)
   ShowVolume(SoundGetVolume())
 }
 
+PlayChime()
+{
+  SoundPlay A_WinDir "\Media\chimes.wav"
+}
+
 #F1::
 {
   mute := SoundGetMute()
@@ -75,12 +80,22 @@ ChangeVolume(Prefix, Value)
 
 #F2::
 {
-  ; SoundSetVolume "-5"
-  ChangeVolume "-", g_Step
+  while (GetKeyState("F2","P"))
+  {
+    ; SoundSetVolume "-5"
+    ChangeVolume "-", g_Step
+    Sleep 100
+  }
+  PlayChime
 }
 
 #F3::
 {
-  ; SoundSetVolume "+5"
-  ChangeVolume "+", g_Step
+  while (GetKeyState("F3","P"))
+  {
+    ; SoundSetVolume "+5"
+    ChangeVolume "+", g_Step
+    Sleep 100
+  }
+  PlayChime
 }
