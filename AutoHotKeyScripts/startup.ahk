@@ -7,3 +7,4 @@
 
 Run "window-switcher.ahk"
 Run "volCtrl.ahk"
+Run "monitor_toggle.ahk"
